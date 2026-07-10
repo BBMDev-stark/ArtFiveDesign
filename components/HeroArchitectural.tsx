@@ -159,7 +159,7 @@ export default function HeroArchitectural() {
           A1
         </span>
         <span
-          className="text-[9px] font-light uppercase"
+          className="text-[7px] font-light uppercase"
           style={{ color: "rgba(245,241,235,0.4)", letterSpacing: "0.38em" }}
         >
           Nghiên cứu Khối lượng
