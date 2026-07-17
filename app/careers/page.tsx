@@ -14,14 +14,17 @@ const values = [
   {
     title: "Khách hàng, không phải cái tôi",
     body: "Chúng tôi luôn lắng nghe trước khi thiết kế. Kết quả tốt nhất đến từ việc kết hợp tầm nhìn của khách hàng với chuyên môn của chúng tôi — không phải từ việc bảo vệ một ý tưởng duy nhất.",
+    image: "/images/diengiai.jpg",
   },
   {
     title: "Một mái nhà, trách nhiệm đầy đủ",
     body: "Thiết kế, xây dựng và xưởng nội thất của riêng nằm trong một studio, để những người vẽ một không gian được kết nối với những người xây dựng nó.",
+    image: "/images/thietke.jpg",
   },
   {
     title: "Xây dựng để được nhìn hai lần",
     body: "Quan hệ khách hàng lâu nhất của chúng tôi kéo dài hơn một thập kỷ. Chúng tôi thiết kế và xây dựng cho công trình vẫn trông đúng vào lần thứ hai, không chỉ bản render.",
+    image: "/images/langnghe.jpg",
   },
 ];
 
@@ -30,7 +33,7 @@ export default function CareersPage() {
     <>
       <section className="relative h-[55vh] min-h-[420px] bg-ink overflow-hidden">
         <Image
-          src="/images/mymother-restaurant.jpg"
+          src="/images/nen2.jpg"
           alt="Studio ARTFIVE DESIGN đang làm việc"
           fill
           priority
@@ -46,47 +49,74 @@ export default function CareersPage() {
       </section>
 
       <section className="container-x py-24 md:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
-          <div className="lg:col-span-4">
-            <Reveal>
-              <SectionEyebrow>Làm việc tại đây</SectionEyebrow>
-              <h2 className="font-serif text-3xl md:text-4xl text-charcoal leading-tight text-balance">
-                Một studio thiết kế-xây dựng, do các nhà thiết kế điều hành
-              </h2>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-7 lg:col-start-6">
-            <Reveal delay={0.1}>
-              <p className="text-charcoal/65 leading-relaxed text-lg mb-4">
-                ARTFIVE DESIGN được sáng lập năm {company.founded} bởi đội ngũ
-                các nhà thiết kế trẻ, sáng tạo với cảm nhận thẩm mỹ chung và
-                niềm tin tiên phong trong vật liệu và công nghệ xây dựng mới. Đội ngũ đó
-                đã phát triển thành kiến trúc, thiết kế nội thất, xây dựng và
-                xưởng sản xuất nội thất riêng — nhưng văn hóa studio mà nó bắt đầu vẫn chưa thay đổi.
-              </p>
-              <p className="text-charcoal/65 leading-relaxed text-lg">
-                Vì thiết kế, xây dựng và sản xuất nằm trong một tổ chức,
-                nhân viên của chúng tôi theo dõi dự án xuyên suốt — từ một
-                bản vẽ phác thảo ban đầu đến một món nội thất đang được lắp đặt tại công trường.
-              </p>
-            </Reveal>
-          </div>
-        </div>
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
+    <div className="lg:col-span-4">
+      <Reveal>
+        <SectionEyebrow>Làm việc tại đây</SectionEyebrow>
+        <h2 className="font-serif text-3xl md:text-4xl text-charcoal leading-tight text-balance">
+          Một studio thiết kế-xây dựng, do các nhà thiết kế điều hành
+        </h2>
+      </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 border-t border-line pt-16">
-          {values.map((v, i) => (
-            <Reveal key={v.title} delay={i * 0.1}>
-              <span className="eyebrow text-bronze/50">0{i + 1}</span>
-              <h3 className="font-serif text-2xl text-charcoal mt-4 mb-3">
-                {v.title}
-              </h3>
-              <p className="text-sm text-charcoal/60 leading-relaxed">
-                {v.body}
-              </p>
-            </Reveal>
-          ))}
+      {/* ẢNH MỚI — ngang, cùng chiều rộng với chữ */}
+      <Reveal delay={0.15}>
+        <div className="relative aspect-[4/3] w-full mt-10 overflow-hidden">
+          <Image
+            src="/images/doingu.jpg"
+            alt="Đội ngũ ARTFIVE DESIGN làm việc tại studio"
+            fill
+            sizes="(min-width: 1024px) 30vw, 90vw"
+            className="object-cover"
+          />
         </div>
-      </section>
+      </Reveal>
+    </div>
+    <div className="lg:col-span-7 lg:col-start-6">
+      <Reveal delay={0.1}>
+        <p className="text-charcoal/65 leading-relaxed text-lg mb-4">
+          ARTFIVE DESIGN được sáng lập năm {company.founded} bởi đội ngũ
+          các nhà thiết kế trẻ, sáng tạo với cảm nhận thẩm mỹ chung và
+          niềm tin tiên phong trong vật liệu và công nghệ xây dựng mới. Đội ngũ đó
+          đã phát triển thành kiến trúc, thiết kế nội thất, xây dựng và
+          xưởng sản xuất nội thất riêng — nhưng văn hóa studio mà nó bắt đầu vẫn chưa thay đổi.
+        </p>
+        <p className="text-charcoal/65 leading-relaxed text-lg">
+          Vì thiết kế, xây dựng và sản xuất nằm trong một tổ chức,
+          nhân viên của chúng tôi theo dõi dự án xuyên suốt — từ một
+          bản vẽ phác thảo ban đầu đến một món nội thất đang được lắp đặt tại công trường.
+        </p>
+      </Reveal>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-10 border-t border-line pt-16">
+  {values.map((v, i) => (
+    <Reveal key={v.title} delay={i * 0.1}>
+      <div className="flex flex-col h-full">
+        <span className="eyebrow text-bronze/50">0{i + 1}</span>
+        <h3 className="font-serif text-2xl text-charcoal mt-4 mb-3">
+          {v.title}
+        </h3>
+        <p className="text-sm text-charcoal/60 leading-relaxed mb-6">
+          {v.body}
+        </p>
+
+        {/* ẢNH — luôn nằm sát đáy card, thẳng hàng giữa các cột */}
+        <div className="relative aspect-[4/3] w-full overflow-hidden mt-auto">
+          <Image
+            src={v.image}
+            alt={v.title}
+            fill
+            sizes="(min-width: 768px) 30vw, 90vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
+    </Reveal>
+  ))}
+</div>
+
+</section>
 
       <section className="bg-charcoal text-ivory py-28 text-center">
         <div className="container-x">

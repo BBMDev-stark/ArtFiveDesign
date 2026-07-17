@@ -15,7 +15,7 @@ export default function PortfolioPage() {
     <>
       <section className="relative h-[50vh] min-h-[380px] bg-ink overflow-hidden">
         <Image
-          src="/images/cpv-food-ho.jpg"
+          src="/images/ECO GREEN2.svg"
           alt="Sảnh Trụ sở CPV Food"
           fill
           priority

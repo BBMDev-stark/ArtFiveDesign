@@ -104,15 +104,29 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-line">
             {sectors.map((s, i) => (
               <Reveal key={s.slug} delay={(i % 3) * 0.1}>
-                <div className="border-b border-r border-line p-7 md:p-10 lg:p-12 h-full min-h-[220px] md:min-h-[280px] flex flex-col justify-between group hover:bg-white/80 transition-all duration-500">
-                  <span className="eyebrow text-charcoal/25 tracking-widest3">0{i + 1}</span>
-                  <div className="mt-auto pt-6">
-                    <h3 className="font-serif text-2xl lg:text-3xl text-charcoal mb-4 group-hover:text-bronze transition-colors duration-300">
-                      {s.name}
-                    </h3>
-                    <p className="text-sm text-charcoal/50 leading-relaxed line-clamp-2">
-                      {s.description}
-                    </p>
+                <div className="group border-b border-r border-line h-full flex flex-col transition-all duration-500 hover:bg-white/80">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-charcoal">
+                    <Image
+                      src={s.image}
+                      alt={s.name}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                    <span className="eyebrow absolute left-5 top-5 text-ivory/70 tracking-widest3">
+                      0{i + 1}
+                    </span>
+                  </div>
+                  <div className="p-7 md:p-10 lg:p-12 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-serif text-2xl lg:text-3xl text-charcoal mb-4 group-hover:text-bronze transition-colors duration-300">
+                        {s.name}
+                      </h3>
+                      <p className="text-sm text-charcoal/50 leading-relaxed line-clamp-2">
+                        {s.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </Reveal>
@@ -170,40 +184,20 @@ export default function HomePage() {
   </div>
 </section>
 
-      {/* BLUEPRINT REVEAL */}
+      {/* BLUEPRINT REVEAL — includes the merged "Dự án Đặc trưng" copy
+          block in its header (previously a separate section below it) */}
       <BlueprintReveal
         eyebrow="Từ Bản vẽ → Đến Công trình"
         title={signature.name}
         location={signature.location}
         mainImage={{ src: "/images/BenhVienSIH.svg", alt: "Bệnh viện SIH" }}
         notes={sihFloors}
+        featured={{
+          eyebrow: "Dự án Đặc trưng",
+          description: signature.detail,
+          linkHref: `/portfolio/${signature.slug}`,
+        }}
       />
-
-      <section className="bg-ink text-ivory pb-28 md:pb-36">
-        <div className="container-x pt-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-5">
-              <Reveal>
-                <SectionEyebrow dark>Dự án Đặc trưng</SectionEyebrow>
-                <p className="text-ivory/60 leading-relaxed text-lg max-w-md">
-                  {signature.detail}
-                </p>
-              </Reveal>
-            </div>
-            <div className="lg:col-span-4 lg:col-start-9">
-              <Reveal delay={0.15}>
-                <Link
-                  href={`/portfolio/${signature.slug}`}
-                  data-cursor
-                  className="eyebrow text-ivory border-b border-champagne/40 pb-1 hover:text-champagne hover:border-champagne transition-all duration-300 tracking-widest3"
-                >
-                  Xem chi tiết dự án
-                </Link>
-              </Reveal>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* PROCESS SECTION */}
       <section className="section-spacing">
@@ -218,11 +212,21 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-10">
             {process.map((step, i) => (
               <Reveal key={step.step} delay={i * 0.12}>
-                <div className="border-t-2 border-bronze pt-8">
-                  <span className="font-serif text-5xl lg:text-6xl text-bronze/30 tracking-tight">
-                    {step.step}
-                  </span>
-                  <h3 className="font-serif text-xl lg:text-2xl text-charcoal mt-6 mb-4">
+                <div className="group">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-charcoal mb-6">
+                    <Image
+                      src={step.image}
+                      alt={step.title}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, 100vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
+                    <span className="font-serif absolute left-5 bottom-4 text-4xl lg:text-5xl text-ivory tracking-tight">
+                      {step.step}
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-xl lg:text-2xl text-charcoal mb-4">
                     {step.title}
                   </h3>
                   <p className="text-sm text-charcoal/55 leading-relaxed">
@@ -247,6 +251,15 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-14">
             {clients.map((c, i) => (
               <Reveal key={c.name} delay={(i % 4) * 0.08}>
+                <div className="relative h-14 w-24 mb-5 rounded-md bg-ivory/95 p-2.5">
+                  <Image
+                    src={c.logo}
+                    alt={c.name}
+                    fill
+                    sizes="200px"
+                    className="object-contain p-1.5"
+                  />
+                </div>
                 <p className="font-serif text-xl lg:text-2xl text-ivory/90 mb-3">
                   {c.name}
                 </p>

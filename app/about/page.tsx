@@ -9,7 +9,7 @@ import { company, philosophy, team, stats } from "@/lib/data";
 export const metadata = {
   title: "Giới thiệu",
   description:
-    "Được sáng lập năm 2009 bởi Nguyễn Dương Huy, ARTFIVE DESIGN CORPORATION là công ty thiết kế nội thất, kiến trúc và xây dựng trọn gói tại Thành phố Hồ Chí Minh.",
+    "Được sáng lập vào năm 2009 bởi Nguyễn Dương Huy, ARTFIVE DESIGN CORPORATION là công ty thiết kế nội thất, kiến trúc và xây dựng trọn gói tại Thành phố Hồ Chí Minh.",
 };
 
 /*
@@ -32,7 +32,7 @@ export const metadata = {
      (studio, văn phòng, hoặc công trình tiêu biểu).
 */
 
-const historyImage = "/images/studio-history.jpg"; // TODO: thay bằng ảnh thật
+const historyImage = "/images/leader/NguyenDuongHuy.svg"; // TODO: thay bằng ảnh thật
 
 const licenses = [
   {
@@ -73,7 +73,7 @@ export default function AboutPage() {
       {/* HERO */}
       <section className="relative h-[64vh] min-h-[540px] bg-ink overflow-hidden">
         <Image
-          src="/images/anphugia-office.jpg"
+          src="/images/OFFICE1.svg"
           alt="Công việc nội thất studio ARTFIVE DESIGN"
           fill
           priority
@@ -98,9 +98,9 @@ export default function AboutPage() {
               <Reveal>
                 <SectionEyebrow>Câu chuyện của chúng tôi</SectionEyebrow>
                 <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight tracking-tight mb-10">
-                  Được sáng lập năm {company.founded}
+                  Được sáng vào lập năm {company.founded}
                   <br />
-                  tại <span className="italic text-bronze">{company.founder}</span>
+                  bởi <span className="italic text-bronze">{company.founder}</span>
                 </h2>
               </Reveal>
               <Reveal delay={0.15}>
@@ -131,47 +131,77 @@ export default function AboutPage() {
 
       {/* PHILOSOPHY */}
       <section className="bg-charcoal text-ivory section-spacing">
-        <div className="container-x">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <Reveal>
-                <SectionEyebrow dark>Triết lý</SectionEyebrow>
-                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
-                  {philosophy.globalLocal}
-                </h2>
-              </Reveal>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-7">
-              <Reveal delay={0.1}>
-                <p className="font-serif text-xl md:text-2xl lg:text-3xl leading-relaxed text-ivory/85">
-                  {philosophy.clientExperience}
-                </p>
-              </Reveal>
-            </div>
+  <div className="container-x">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div className="lg:col-span-5">
+        <Reveal>
+          <SectionEyebrow dark>Triết lý</SectionEyebrow>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
+            {philosophy.globalLocal}
+          </h2>
+        </Reveal>
+
+        {/* ẢNH MỚI — sát dưới tiêu đề */}
+        <Reveal delay={0.15}>
+          <div className="relative aspect-[16/9] w-full mt-8 overflow-hidden">
+            <Image
+              src="/images/BenhVienSIH2.svg"
+              alt="Tầm nhìn toàn cầu của ARTFIVE DESIGN"
+              fill
+              sizes="(min-width: 1024px) 35vw, 90vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 border border-ivory/20 pointer-events-none" />
           </div>
-        </div>
-      </section>
+        </Reveal>
+      </div>
+
+      <div className="lg:col-span-6 lg:col-start-7">
+        <Reveal delay={0.1}>
+          <p className="font-serif text-xl md:text-2xl lg:text-3xl leading-relaxed text-ivory/85">
+            {philosophy.clientExperience}
+          </p>
+        </Reveal>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* EXPERIENCE — nội dung mới, lấy khách hàng làm trung tâm */}
       <section className="section-spacing border-t border-line">
-        <div className="container-x">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <Reveal>
-                <SectionEyebrow>Kinh nghiệm của chúng tôi</SectionEyebrow>
-                <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-charcoal leading-snug tracking-tight text-balance">
-                  {experience.headline}
-                </p>
-              </Reveal>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-7 lg:pt-2">
-              <Reveal delay={0.1}>
-                <p className="text-lg text-charcoal/65 leading-relaxed">{experience.body}</p>
-              </Reveal>
-            </div>
+  <div className="container-x">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div className="lg:col-span-5">
+        <Reveal>
+          <SectionEyebrow>Kinh nghiệm của chúng tôi</SectionEyebrow>
+          <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-charcoal leading-snug tracking-tight text-balance">
+            {experience.headline}
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="lg:col-span-6 lg:col-start-7 lg:pt-2">
+        <Reveal delay={0.1}>
+          <p className="text-lg text-charcoal/65 leading-relaxed">{experience.body}</p>
+        </Reveal>
+
+        {/* ẢNH MỚI — sát dưới đoạn văn, cùng tỷ lệ với ảnh trên */}
+        <Reveal delay={0.2}>
+          <div className="relative aspect-[16/9] w-full mt-8 overflow-hidden">
+            <Image
+              src="/images/OFFICEIRISPARTNERS.svg"
+              alt="Công trình tiêu biểu của ARTFIVE DESIGN"
+              fill
+              sizes="(min-width: 1024px) 45vw, 90vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 border border-charcoal/10 pointer-events-none" />
           </div>
-        </div>
-      </section>
+        </Reveal>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* STATS */}
       <section className="section-spacing border-t border-line">

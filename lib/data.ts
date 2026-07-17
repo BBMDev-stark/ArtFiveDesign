@@ -38,36 +38,42 @@ export const sectors = [
     name: "Y tế",
     description:
       "Môi trường lâm sàng được thiết kế để tạo sự bình yên — các phòng bệnh nhân, tầng khám bệnh và sảnh bệnh viện được thiết kế xoay quanh sự tôn trọng, dẫn đường rõ ràng và vận hành chính xác.",
+    image: "/images/3.svg",
   },
   {
     slug: "hospitality",
     name: "Khách sạn & Nhà hàng",
     description:
       "Nội thất khách sạn 5 sao cả phía sau và phía trước, không gian ẩm thực cao cấp được xây dựng cho bầu không khí và sự bền vững.",
+    image: "/images/DORMITORY3.svg",
   },
   {
     slug: "office",
     name: "Văn phòng & Doanh nghiệp",
     description:
       "Trụ sở và nội thất văn phòng cho các doanh nghiệp đa quốc gia — nơi thương hiệu, văn hóa và hiệu quả vận hành hội tụ trên cùng một mặt bằng.",
+    image: "/images/OFFICE4.svg",
   },
   {
     slug: "industrial",
     name: "Công nghiệp",
     description:
       "Văn phòng nhà máy, phòng thí nghiệm, ký túc xá và cơ sở sản xuất được hoàn thành với cùng tiêu chuẩn như các công trình đối ngoại.",
+    image: "/images/SHRIMP3.svg",
   },
   {
     slug: "residential",
     name: "Căn hộ & Biệt thự",
     description:
       "Biệt thự và căn hộ riêng tại Thành phố Hồ Chí Minh, được thiết kế theo cách sống thực sự của mỗi gia đình.",
+    image: "/images/PARKLEGEND4.svg",
   },
   {
     slug: "international",
     name: "Quốc tế",
     description:
       "Thi công xuyên biên giới cho khách hàng tổ chức và doanh nghiệp, bao gồm các tổ chức có trụ sở tại Singapore và Thái Lan hoạt động tại Việt Nam.",
+    image: "/images/cp-lab-thailand-office.svg",
   },
 ];
 
@@ -405,25 +411,25 @@ export const team = [
     name: "Nguyễn Dương Huy",
     role: "Người sáng lập & Giám đốc điều hành",
     bio: "Sáng lập ARTFIVE DESIGN năm 2009 và lãnh đạo studio phát triển từ một công ty thiết kế nội thất thành một tập đoàn thiết kế và xây dựng đầy đủ.",
-    image: "/images/team/nguyen-duong-huy.jpg",
+    image: "/images/leader/NguyenDuongHuy.svg",
   },
   {
     name: "TS. Kiến trúc sư Cao Anh Tuấn",
     role: "Kiến trúc sư trưởng · Tiến sĩ, Kiến trúc & Quy hoạch Đô thị",
     bio: "Có bằng Tiến sĩ về Kiến trúc và Quy hoạch Đô thị. Từng là chuyên gia kiến trúc cho các nhà phát triển lớn của Việt Nam, và giảng dạy tại trường đại học kiến trúc. Đã lãnh đạo hoặc đóng góp vào công tác quy hoạch tại Khu đô thị Thủ Thiêm, Quận dân cư PMLA, Khu nghỉ dưỡng Thịnh Phát Charm và Diamond Lotus Riverside.",
-    image: "/images/team/cao-anh-tuan.jpg",
+    image: "/images/leader/CaoAnhTuan.svg",
   },
   {
     name: "Sơn Nguyễn",
     role: "Giám đốc Thiết kế",
     bio: "Lãnh đạo hướng thiết kế trên các dự án nội thất của ARTFIVE DESIGN.",
-    image: "/images/team/son-nguyen.jpg",
+    image: "/images/leader/SonNguyen.svg",
   },
   {
     name: "Hòa Âu",
     role: "Giám đốc Dự án",
     bio: "Điều phối việc bàn giao dự án, từ ý đồ thiết kế đến xây dựng và bàn giao trọn gói.",
-    image: "/images/team/hoa-au.jpg",
+    image: "/images/leader/HoaAu.svg",
   },
 ];
 
@@ -433,36 +439,72 @@ export const process = [
     title: "Lắng nghe",
     description:
       "Mỗi dự án bắt đầu bằng việc lắng nghe — yêu cầu của khách hàng, địa điểm và những người sẽ sử dụng không gian hoàn thiện. Chúng tôi luôn lắng nghe trước khi thiết kế.",
+    image: "/images/langnghe.jpg",
   },
   {
     step: "02",
     title: "Diễn giải",
     description:
       "Chúng tôi diễn giải yêu cầu đó thông qua nghiên cứu về các xu hướng hiện tại và tương lai trong lĩnh vực liên quan, chuyển đổi yêu cầu thành hướng thiết kế rõ ràng.",
+    image: "/images/diengiai.jpg",
   },
   {
     step: "03",
     title: "Thiết kế",
     description:
       "Ý đồ thiết kế được truyền đạt và phát triển trong sự hợp tác chặt chẽ với khách hàng — đối với chúng tôi, tiếng nói của khách hàng quan trọng nhất, không phải cái tôi của chúng tôi.",
+    image: "/images/thietke.jpg",
   },
   {
     step: "04",
     title: "Thi công",
     description:
       "Với xưởng nội thất và đội ngũ xây dựng riêng, chúng tôi thi công thiết kế thông qua bàn giao trọn gói — một điểm trách nhiệm duy nhất từ bản vẽ đến bàn giao.",
+    image: "/images/thicong.jpg",
   },
 ];
 
 export const clients = [
-  { name: "Tập đoàn C.P. Thái Lan", note: "Đối tác thiết kế, xây dựng & nội thất trọn gói tại Việt Nam từ năm 2013" },
-  { name: "Unilever", note: "Văn phòng doanh nghiệp, Bắc Ninh" },
-  { name: "Pullman", note: "Khách sạn 5 sao, Hải Phòng" },
-  { name: "Bệnh viện Đa khoa Singapore", note: "Y tế quốc tế" },
-  { name: "Bệnh viện Quốc tế Sài Gòn", note: "Y tế, Quận 1, TP.HCM" },
-  { name: "Qualgo Technologies", note: "Văn phòng doanh nghiệp, TP.HCM" },
-  { name: "Iris Partners", note: "Văn phòng luật, Quận 1, TP.HCM" },
-  { name: "Him Lam", note: "Cộng đồng cư dân, Quận 7, TP.HCM" },
+  {
+    name: "Tập đoàn C.P. Thái Lan",
+    note: "Đối tác thiết kế, xây dựng & nội thất trọn gói tại Việt Nam từ năm 2013",
+    logo: "/images/logo/CP.svg",
+  },
+  {
+    name: "Unilever",
+    note: "Văn phòng doanh nghiệp, Bắc Ninh",
+    logo: "/images/logo/Uni.svg",
+  },
+  {
+    name: "Pullman",
+    note: "Khách sạn 5 sao, Hải Phòng",
+    logo: "/images/logo/pullman.svg",
+  },
+  {
+    name: "Bệnh viện Đa khoa Singapore",
+    note: "Y tế quốc tế",
+    logo: "/images/logo/bvSingapore.svg",
+  },
+  {
+    name: "Bệnh viện Quốc tế Sài Gòn",
+    note: "Y tế, Quận 1, TP.HCM",
+    logo: "/images/logo/bvsaigon.svg",
+  },
+  {
+    name: "Qualgo Technologies",
+    note: "Văn phòng doanh nghiệp, TP.HCM",
+    logo: "/images/logo/Qualgo.svg",
+  },
+  {
+    name: "Iris Partners",
+    note: "Văn phòng luật, Quận 1, TP.HCM",
+    logo: "/images/logo/partners.svg",
+  },
+  {
+    name: "Him Lam",
+    note: "Cộng đồng cư dân, Quận 7, TP.HCM",
+    logo: "/images/logo/himlam.svg",
+  },
 ];
 
 export const certifications = [

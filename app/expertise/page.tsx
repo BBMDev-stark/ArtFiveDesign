@@ -63,7 +63,7 @@ export default function ExpertisePage() {
       {/* HERO */}
       <section className="relative h-[55vh] min-h-[480px] bg-ink overflow-hidden">
         <Image
-          src="/images/sih-clinic.jpg"
+          src="/images/BenhVienSIH5.svg"
           alt="Chi tiết nội thất lâm sàng"
           fill
           priority
@@ -126,90 +126,88 @@ export default function ExpertisePage() {
       </section>
 
       {/* SECTORS */}
-      {sectors.map((sector, i) => {
-        const related = projects.filter((p) => p.sector.includes(sector.slug));
-        const cover = related[0];
-        const reversed = i % 2 === 1;
-        return (
-          <section
-            key={sector.slug}
-            className={`border-t border-line ${i % 2 === 1 ? "bg-paper" : ""}`}
-            id={sector.slug}
-          >
-            <div className="container-x py-20 md:py-28">
-              <div
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center`}
-              >
-                <div className={`lg:col-span-5 ${reversed ? "lg:order-2" : ""}`}>
-                  <Reveal>
-                    <div className="flex items-center gap-4 mb-4">
-                      <span className="eyebrow text-charcoal/25 tracking-widest3">0{i + 1}</span>
-                      {related.length > 0 && (
-                        <span className="text-xs uppercase tracking-wide text-bronze/70">
-                          {related.length} dự án tiêu biểu
-                        </span>
-                      )}
-                    </div>
-                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal mb-6 tracking-tight leading-[1.1]">
-                      {sector.name}
-                    </h2>
-                    <p className="text-charcoal/60 leading-relaxed max-w-md mb-8">
-                      {sector.description}
-                    </p>
-
-                    {/* dịch vụ trọn gói */}
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mb-8 max-w-md">
-                      {fullServiceScope.map((service) => (
-                        <li key={service} className="flex items-start gap-2 text-sm text-charcoal/55">
-                          <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-bronze/60" />
-                          {service}
-                        </li>
-                      ))}
-                    </ul>
-
-                    {related.length > 0 && (
-                      <ul className="space-y-3 mb-8">
-                        {related.slice(0, 4).map((p) => (
-                          <li key={p.slug}>
-                            <Link
-                              href={`/portfolio/${p.slug}`}
-                              className="text-sm text-charcoal/60 hover:text-bronze border-b border-transparent hover:border-bronze/30 pb-1 transition-all duration-300"
-                            >
-                              {p.name} — {p.location}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-
-                    <Link
-                      href={`/portfolio?sector=${sector.slug}`}
-                      className="eyebrow text-bronze border-b border-bronze/30 pb-0.5 hover:border-bronze hover:pb-0 transition-all duration-300 tracking-widest3"
-                    >
-                      Xem dự án {sector.name}
-                    </Link>
-                  </Reveal>
-                </div>
-                <div className={`lg:col-span-6 ${reversed ? "lg:order-1 lg:col-start-1" : "lg:col-start-7"}`}>
-                  {cover && (
-                    <Reveal delay={0.15}>
-                      <div className="relative aspect-[4/3] overflow-hidden">
-                        <Image
-                          src={cover.image}
-                          alt={cover.name}
-                          fill
-                          sizes="(min-width: 1024px) 50vw, 100vw"
-                          className="object-cover"
-                        />
-                      </div>
-                    </Reveal>
-                  )}
-                </div>
+      {/* SECTORS */}
+{sectors.map((sector, i) => {
+  const related = projects.filter((p) => p.sector.includes(sector.slug));
+  const reversed = i % 2 === 1;
+  return (
+    <section
+      key={sector.slug}
+      className={`border-t border-line ${i % 2 === 1 ? "bg-paper" : ""}`}
+      id={sector.slug}
+    >
+      <div className="container-x py-20 md:py-28">
+        <div
+          className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center`}
+        >
+          <div className={`lg:col-span-5 ${reversed ? "lg:order-2" : ""}`}>
+            <Reveal>
+              <div className="flex items-center gap-4 mb-4">
+                <span className="eyebrow text-charcoal/25 tracking-widest3">0{i + 1}</span>
+                {related.length > 0 && (
+                  <span className="text-xs uppercase tracking-wide text-bronze/70">
+                    {related.length} dự án tiêu biểu
+                  </span>
+                )}
               </div>
-            </div>
-          </section>
-        );
-      })}
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal mb-6 tracking-tight leading-[1.1]">
+                {sector.name}
+              </h2>
+              <p className="text-charcoal/60 leading-relaxed max-w-md mb-8">
+                {sector.description}
+              </p>
+
+              {/* dịch vụ trọn gói */}
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mb-8 max-w-md">
+                {fullServiceScope.map((service) => (
+                  <li key={service} className="flex items-start gap-2 text-sm text-charcoal/55">
+                    <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-bronze/60" />
+                    {service}
+                  </li>
+                ))}
+              </ul>
+
+              {related.length > 0 && (
+                <ul className="space-y-3 mb-8">
+                  {related.slice(0, 4).map((p) => (
+                    <li key={p.slug}>
+                      <Link
+                        href={`/portfolio/${p.slug}`}
+                        className="text-sm text-charcoal/60 hover:text-bronze border-b border-transparent hover:border-bronze/30 pb-1 transition-all duration-300"
+                      >
+                        {p.name} — {p.location}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              <Link
+                href={`/portfolio?sector=${sector.slug}`}
+                className="eyebrow text-bronze border-b border-bronze/30 pb-0.5 hover:border-bronze hover:pb-0 transition-all duration-300 tracking-widest3"
+              >
+                Xem dự án {sector.name}
+              </Link>
+            </Reveal>
+          </div>
+          <div className={`lg:col-span-6 ${reversed ? "lg:order-1 lg:col-start-1" : "lg:col-start-7"}`}>
+            <Reveal delay={0.15}>
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={sector.image}
+                  alt={sector.name}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+})}
 
       {/* VÌ SAO CHỌN ARTFIVE */}
       <section className="section-spacing bg-paper border-t border-line">

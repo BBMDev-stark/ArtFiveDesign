@@ -14,7 +14,7 @@ export default function ContactPage() {
     <>
       <section className="relative h-[45vh] min-h-[340px] bg-ink overflow-hidden">
         <Image
-          src="/images/parklegend-apt.jpg"
+          src="/images/nen3.jpg"
           alt="Căn hộ Park Legend, Quận Tân Bình"
           fill
           priority

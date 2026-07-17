@@ -19,63 +19,15 @@ const C = {
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-/** 5 numbered annotations that point out from the house photo itself.
- * left/top = the exact anchor point ON the building (as a % of the frame,
- * which has zero letterboxing for slot 0 since the frame's aspect ratio
- * matches the source image exactly). angle = tilt of the connector line
- * fanning out from that point toward the label, in degrees. */
-const annotations = [
-  {
-    id: "01",
-    label: "Hệ Mái",
-    title: "Hệ Mái Bằng Hiện Đại",
-    description:
-      "Thiết kế mái bằng hiện đại, tối ưu thoát nước và cách nhiệt, phù hợp với khí hậu Việt Nam.",
-    left: "40%",
-    top: "6%",
-    angle: -8,
-  },
-  {
-    id: "02",
-    label: "Mặt Dựng Kính",
-    title: "Mặt Dựng Kính",
-    description:
-      "Hệ kính lớn tối ưu ánh sáng tự nhiên và tầm nhìn, kết hợp với khung nhôm cao cấp.",
-    left: "60%",
-    top: "24%",
-    angle: -4,
-  },
-  {
-    id: "03",
-    label: "Tường Bê Tông",
-    title: "Tường Bê Tông Hoàn Thiện",
-    description:
-      "Vật liệu bê tông hoàn thiện cao cấp, bền vững theo thời gian với vẻ đẹp hiện đại.",
-    left: "78%",
-    top: "44%",
-    angle: 3,
-  },
-  {
-    id: "04",
-    label: "Sân Vườn Xanh",
-    title: "Không Gian Xanh",
-    description:
-      "Không gian xanh được tích hợp hài hòa trong kiến trúc tổng thể, tạo sự cân bằng với thiên nhiên.",
-    left: "81%",
-    top: "65%",
-    angle: 10,
-  },
-  {
-    id: "05",
-    label: "Ánh Sáng",
-    title: "Hệ Thống Chiếu Sáng",
-    description:
-      "Hệ thống chiếu sáng thông minh, tôn vinh kiến trúc và không gian một cách tinh tế.",
-    left: "26%",
-    top: "89%",
-    angle: 16,
-  },
-];
+type Annotation = {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  left: string;
+  top: string;
+  angle: number;
+};
 
 /**
  * 5 numbers on the left, each swaps the house photo on the right.
@@ -88,8 +40,343 @@ const houses = [
   { id: 2, src: "/images/BenhVienSIH.svg", name: "Hospital SIH" },
   { id: 3, src: "/images/TieuBieu3.svg", name: "Pullman Hải Phòng" },
   { id: 4, src: "/images/TieuBieu4.svg", name: "Trụ sở CPV Food" },
-  { id: 4, src: "/images/singapo.svg", name: "Bệnh viện Đa khoa Singapore" },
+  { id: 5, src: "/images/singapo.svg", name: "Bệnh viện Đa khoa Singapore" },
 ];
+
+/** Mỗi công trình có bộ 5 chú thích RIÊNG, khớp với đặc điểm thật của
+ * công trình đó. Key của object = house.id ở trên.
+ * left/top = vị trí neo trên ảnh (theo % khung hình).
+ * angle = góc nghiêng của đường nối, toả ra từ điểm neo tới label.
+ *
+ * LƯU Ý: left/top mình giữ tạm giống bố cục cũ (toả đều quanh khung ảnh).
+ * Vì mỗi ảnh thực tế có hình khối khác nhau, bạn nên chỉnh lại left/top
+ * cho khớp với các chi tiết thật trên từng ảnh sau khi xem preview.
+ */
+const annotationsByHouse: Record<number, Annotation[]> = {
+  // 0 — Villa Concept
+  0: [
+    {
+      id: "01",
+      label: "Hệ Mái",
+      title: "Hệ Mái Bằng Hiện Đại",
+      description:
+        "Mái dốc đa lớp với đường nét kiến trúc tinh gọn, tối ưu khả năng thoát nước, chống nóng và tăng chiều sâu thẩm mỹ cho toàn bộ công trình.",
+      left: "50%",
+      top: "6%",
+      angle: -8,
+    },
+    {
+      id: "02",
+      label: "Hệ cửa kính",
+      title: "Hệ cửa kính",
+      description:
+        "Hệ cửa kính khổ lớn mở rộng tầm nhìn, tăng cường ánh sáng tự nhiên và kết nối không gian sống.",
+      left: "60%",
+      top: "24%",
+      angle: -4,
+    },
+    {
+      id: "03",
+      label: "Hoàn thiện mặt đứng",
+      title: "Hoàn thiện mặt đứng",
+      description:
+        "Sự kết hợp giữa vật liệu cao cấp và các chi tiết phào chỉ tạo nên chiều sâu cùng vẻ đẹp bền vững theo thời gian.",
+      left: "78%",
+      top: "44%",
+      angle: 3,
+    },
+    {
+      id: "04",
+      label: "Cảnh quan sân vườn",
+      title: "Cảnh quan sân vườn",
+      description:
+        "Cây xanh được bố trí có chủ đích nhằm cân bằng kiến trúc, tăng giá trị thẩm mỹ và cải thiện vi khí hậu.",
+      left: "81%",
+      top: "65%",
+      angle: 10,
+    },
+    {
+      id: "05",
+      label: "Chiếu sáng ngoại thất",
+      title: "Chiếu sáng ngoại thất",
+      description:
+        "Hệ thống chiếu sáng được thiết kế để tôn vinh hình khối công trình, tạo hiệu ứng sang trọng vào ban đêm.",
+      left: "26%",
+      top: "89%",
+      angle: 16,
+    },
+  ],
+
+  // 1 — Concept H.O. 2 (văn phòng)
+  1: [
+    {
+      id: "01",
+      label: "MẶT DỰNG KÍNH",
+      title: "MẶT DỰNG KÍNH",
+      description:
+        "Hệ kính toàn chiều cao tối ưu ánh sáng tự nhiên, mở rộng tầm nhìn và tạo nên diện mạo hiện đại cho công trình.",
+      left: "38%",
+      top: "8%",
+      angle: -8,
+    },
+    {
+      id: "02",
+      label: "LAM KIẾN TRÚC",
+      title: "LAM KIẾN TRÚC",
+      description:
+        "Hệ lam nhôm được bố trí theo giải pháp che nắng thụ động, nâng cao hiệu quả sử dụng năng lượng và tăng chiều sâu mặt đứng.",
+      left: "80%",
+      top: "22%",
+      angle: -4,
+    },
+    {
+      id: "03",
+      label: "Sảnh Đón",
+      title: "Sảnh Đón Sang Trọng",
+      description:
+        "Sảnh chính với trần cao và vật liệu cao cấp, tạo ấn tượng chuyên nghiệp ngay từ lối vào.",
+      left: "80%",
+      top: "46%",
+      angle: 3,
+    },
+    {
+      id: "04",
+      label: "Không Gian Mở",
+      title: "Không Gian Làm Việc Mở",
+      description:
+        "Bố cục mở linh hoạt, tối ưu tương tác và luồng di chuyển giữa các khu chức năng.",
+      left: "80%",
+      top: "66%",
+      angle: 10,
+    },
+    {
+      id: "05",
+      label: "Chiếu Sáng",
+      title: "Chiếu Sáng Kiến Trúc",
+      description:
+        "Hệ thống đèn chiếu điểm nhấn làm nổi bật đường nét kiến trúc vào ban đêm.",
+      left: "24%",
+      top: "88%",
+      angle: 16,
+    },
+  ],
+
+  // 2 — Hospital SIH
+  2: [
+    {
+      id: "01",
+      label: "Khối Điều Trị",
+      title: "Khối Nhà Điều Trị Chính",
+      description:
+        "Khối công trình trung tâm bố trí các khoa điều trị, tối ưu luồng di chuyển bệnh nhân và y bác sĩ.",
+      left: "70%",
+      top: "7%",
+      angle: -8,
+    },
+    {
+      id: "02",
+      label: "MẶT DỰNG KIẾN TRÚC",
+      title: "Hệ Thống Thông Gió Y Tế",
+      description:
+        "Hệ lam đứng kết hợp các dải chiếu sáng tạo chiều sâu mặt đứng, nâng cao hiệu quả che nắng và nhận diện công trình.",
+      left: "70%",
+      top: "23%",
+      angle: -4,
+    },
+    {
+      id: "03",
+      label: "Khu Tiếp Đón",
+      title: "Khu Vực Tiếp Đón",
+      description:
+        "Không gian tiếp đón rộng rãi, dễ định hướng, giảm căng thẳng cho bệnh nhân và người nhà.",
+      left: "77%",
+      top: "45%",
+      angle: 3,
+    },
+    {
+      id: "04",
+      label: "KHÔNG GIAN CHỨC NĂNG",
+      title: "Lối Đi Kết Nối Liên Khối",
+      description:
+        "Tầng đế được quy hoạch linh hoạt, tăng khả năng kết nối giữa các khu vực dịch vụ, tiếp đón và hỗ trợ.",
+      left: "80%",
+      top: "64%",
+      angle: 10,
+    },
+    {
+      id: "05",
+      label: "CẢNH QUAN NGOẠI THẤT",
+      title: "Không Gian Xanh Trị Liệu",
+      description:
+        "Hệ cây xanh và tiểu cảnh được bố trí hài hòa, góp phần nâng cao chất lượng môi trường và giá trị thẩm mỹ của công trình.",
+      left: "27%",
+      top: "90%",
+      angle: 16,
+    },
+  ],
+
+  // 3 — Pullman Hải Phòng (khách sạn)
+  3: [
+    {
+      id: "01",
+      label: "Tháp Khách Sạn",
+      title: "Khối Tháp Lưu Trú",
+      description:
+        "Khối tháp cao tầng với các phòng nghỉ hướng view, tối ưu tầm nhìn ra thành phố.",
+      left: "42%",
+      top: "6%",
+      angle: -8,
+    },
+    {
+      id: "02",
+      label: "Hệ ban công & mặt đứng",
+      title: "Hệ ban công & mặt đứng",
+      description:
+        "Các ban công chạy liên tục kết hợp đường nét ngang tạo chiều sâu mặt đứng, đồng thời tăng tính thẩm mỹ và sự thông thoáng cho công trình.",
+      left: "63%",
+      top: "25%",
+      angle: -4,
+    },
+    {
+      id: "03",
+      label: "Khối đế đa tầng",
+      title: "Sảnh Lễ Tân",
+      description:
+        "Khối đế được thiết kế mở với nhiều lớp không gian, tạo sự chuyển tiếp hài hòa giữa công trình và cảnh quan đô thị.",
+      left: "78%",
+      top: "44%",
+      angle: 3,
+    },
+    {
+      id: "04",
+      label: "Không gian cảnh quan",
+      title: "CẢNH QUAN NGOẠI THẤT",
+      description:
+        "Hệ cây xanh và quảng trường phía trước được bố trí đồng bộ, tạo điểm nhấn và nâng cao trải nghiệm tiếp cận công trình.",
+      left: "82%",
+      top: "63%",
+      angle: 10,
+    },
+    {
+      id: "05",
+      label: "CHIẾU SÁNG KIẾN TRÚC",
+      title: "Mặt Dựng Kính Toàn Phần",
+      description:
+        "Hệ thống đèn LED được bố trí theo các đường nét kiến trúc, làm nổi bật hình khối và tạo hiệu ứng thị giác vào ban đêm.",
+      left: "25%",
+      top: "90%",
+      angle: 16,
+    },
+  ],
+
+  // 4 — Trụ sở CPV Food
+  4: [
+    {
+      id: "01",
+      label: "Khối Văn Phòng",
+      title: "Khối Văn Phòng Chính",
+      description:
+        "Khối nhà chính bố trí các phòng ban điều hành, thiết kế theo tiêu chuẩn trụ sở doanh nghiệp.",
+      left: "39%",
+      top: "7%",
+      angle: -8,
+    },
+    {
+      id: "02",
+      label: "Nhận Diện Thương Hiệu",
+      title: "Mặt Đứng Nhận Diện Thương Hiệu",
+      description:
+        "Mặt đứng công trình được thiết kế tích hợp bản sắc thương hiệu, tạo dấu ấn nhận diện riêng.",
+      left: "60%",
+      top: "24%",
+      angle: -4,
+    },
+    {
+      id: "03",
+      label: "Sảnh Chính",
+      title: "Sảnh Chính",
+      description:
+        "Sảnh chính rộng rãi, trang trọng, phục vụ tiếp đón đối tác và khách hàng.",
+      left: "77%",
+      top: "45%",
+      angle: 3,
+    },
+    {
+      id: "04",
+      label: "Cảnh Quan",
+      title: "Khuôn Viên Cảnh Quan",
+      description:
+        "Cảnh quan sân vườn bao quanh công trình, tạo môi trường làm việc xanh và thoáng đãng.",
+      left: "80%",
+      top: "65%",
+      angle: 10,
+    },
+    {
+      id: "05",
+      label: "Bãi Đỗ Xe",
+      title: "Bãi Đỗ Xe Ngầm",
+      description:
+        "Hệ thống bãi đỗ xe ngầm giúp tối ưu diện tích mặt bằng và cảnh quan trên mặt đất.",
+      left: "26%",
+      top: "89%",
+      angle: 16,
+    },
+  ],
+
+  // 5 — Bệnh viện Đa khoa Singapore
+  5: [
+    {
+      id: "01",
+      label: "Khối Khám Bệnh",
+      title: "Khối Khám Bệnh Ngoại Trú",
+      description:
+        "Khối khám bệnh được bố trí độc lập, tối ưu lưu lượng bệnh nhân ngoại trú mỗi ngày.",
+      left: "41%",
+      top: "6%",
+      angle: -8,
+    },
+    {
+      id: "02",
+      label: "Khối Nội Trú",
+      title: "Khối Nội Trú",
+      description:
+        "Khối nội trú với phòng bệnh riêng biệt, đảm bảo sự yên tĩnh và riêng tư cho bệnh nhân.",
+      left: "62%",
+      top: "23%",
+      angle: -4,
+    },
+    {
+      id: "03",
+      label: "Cầu Nối",
+      title: "Cầu Nối Liên Khối",
+      description:
+        "Hệ cầu nối trên cao giữa các khối chức năng, tối ưu vận chuyển và di chuyển nội viện.",
+      left: "78%",
+      top: "45%",
+      angle: 3,
+    },
+    {
+      id: "04",
+      label: "Sân Trong",
+      title: "Sân Trong (Courtyard)",
+      description:
+        "Sân trong lấy sáng và thông gió tự nhiên, đồng thời tạo không gian nghỉ ngơi cho bệnh nhân.",
+      left: "81%",
+      top: "64%",
+      angle: 10,
+    },
+    {
+      id: "05",
+      label: "Năng Lượng Xanh",
+      title: "Hệ Thống Năng Lượng Xanh",
+      description:
+        "Giải pháp năng lượng xanh tích hợp, hướng tới vận hành bền vững cho công trình y tế.",
+      left: "25%",
+      top: "88%",
+      angle: 16,
+    },
+  ],
+};
 
 const stats = [
   { value: "15+", label: "Năm Kinh Nghiệm" },
@@ -110,7 +397,14 @@ export default function HeroArchitectural() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  const active = annotations.find((a) => a.id === openId) ?? null;
+  // Bộ chú thích của công trình đang được chọn
+  const currentAnnotations = annotationsByHouse[houses[activeHouse].id] ?? [];
+  const active = currentAnnotations.find((a) => a.id === openId) ?? null;
+
+  // Khi đổi công trình, đóng modal chú thích đang mở (tránh lệch nội dung)
+  useEffect(() => {
+    setOpenId(null);
+  }, [activeHouse]);
 
   return (
     <section
@@ -393,71 +687,79 @@ export default function HeroArchitectural() {
 
           {/* Desktop annotations — thin diagonal connector from a point on
               the building out to a small numbered badge + label, matching
-              the architectural-blueprint reference exactly */}
+              the architectural-blueprint reference exactly.
+              Sử dụng bộ chú thích riêng của công trình đang active, và
+              key={activeHouse} để mỗi lần đổi ảnh, chú thích fade-in lại. */}
           <div className="hidden lg:block">
-            {annotations.map((annot, idx) => (
-              <motion.div
-                key={annot.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, ease: EASE, delay: 1.1 + idx * 0.1 }}
-                className="absolute z-20 flex items-center"
-                style={{ left: annot.left, top: annot.top }}
-              >
-                {/* dot marker exactly on the building */}
-                <span
-                  className="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 rounded-full"
-                  style={{
-                    backgroundColor: C.champagne,
-                    boxShadow: `0 0 7px 1.5px rgba(200,176,138,0.55)`,
-                  }}
-                  aria-hidden
-                />
-                {/* diagonal connector line, fanning outward */}
-                <span
-                  className="h-px origin-left"
-                  style={{
-                    width: "3.75rem",
-                    marginLeft: "6px",
-                    backgroundColor: "rgba(200,176,138,0.55)",
-                    transform: `rotate(${annot.angle}deg)`,
-                  }}
-                  aria-hidden
-                />
-                {/* numbered badge */}
-                <span
-                  className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border text-[7.5px] font-light ml-2"
-                  style={{ borderColor: "rgba(200,176,138,0.55)", color: C.champagne }}
-                >
-                  {annot.id}
-                </span>
-                {/* label + description — always visible, no box, no shadow */}
-                <div className="ml-3 max-w-[185px]">
-                  <p
-                    className="text-[9.5px] font-light uppercase"
-                    style={{ color: C.champagne, letterSpacing: "0.24em" }}
+            <AnimatePresence mode="wait">
+              <motion.div key={activeHouse}>
+                {currentAnnotations.map((annot, idx) => (
+                  <motion.div
+                    key={`${activeHouse}-${annot.id}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8, ease: EASE, delay: idx * 0.1 }}
+                    className="absolute z-20 flex items-center"
+                    style={{ left: annot.left, top: annot.top }}
                   >
-                    {annot.label}
-                  </p>
-                  <p
-                    className="font-light mt-1"
-                    style={{
-                      color: "rgba(245,241,235,0.58)",
-                      fontSize: "10.5px",
-                      lineHeight: 1.65,
-                    }}
-                  >
-                    {annot.description}
-                  </p>
-                </div>
+                    {/* dot marker exactly on the building */}
+                    <span
+                      className="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 rounded-full"
+                      style={{
+                        backgroundColor: C.champagne,
+                        boxShadow: `0 0 7px 1.5px rgba(200,176,138,0.55)`,
+                      }}
+                      aria-hidden
+                    />
+                    {/* diagonal connector line, fanning outward */}
+                    <span
+                      className="h-px origin-left"
+                      style={{
+                        width: "3.75rem",
+                        marginLeft: "6px",
+                        backgroundColor: "rgba(200,176,138,0.55)",
+                        transform: `rotate(${annot.angle}deg)`,
+                      }}
+                      aria-hidden
+                    />
+                    {/* numbered badge */}
+                    <span
+                      className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border text-[7.5px] font-light ml-2"
+                      style={{ borderColor: "rgba(200,176,138,0.55)", color: C.champagne }}
+                    >
+                      {annot.id}
+                    </span>
+                    {/* label + description — always visible, no box, no shadow */}
+                    <div className="ml-3 max-w-[185px]">
+                      <p
+                        className="text-[9.5px] font-light uppercase"
+                        style={{ color: C.champagne, letterSpacing: "0.24em" }}
+                      >
+                        {annot.label}
+                      </p>
+                      <p
+                        className="font-light mt-1"
+                        style={{
+                          color: "rgba(245,241,235,0.58)",
+                          fontSize: "10.5px",
+                          lineHeight: 1.65,
+                        }}
+                      >
+                        {annot.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
               </motion.div>
-            ))}
+            </AnimatePresence>
           </div>
           </motion.div>
 
-          {/* Mobile: annotation chips that open a modal */}
+          {/* Mobile: annotation chips that open a modal — cũng lấy theo
+              currentAnnotations của công trình đang active */}
           <div className="lg:hidden mt-5 grid grid-cols-5 gap-2 px-1">
-            {annotations.map((annot) => (
+            {currentAnnotations.map((annot) => (
               <button
                 key={annot.id}
                 onClick={() => setOpenId(annot.id)}

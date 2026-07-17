@@ -17,6 +17,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import SectionEyebrow from "@/components/SectionEyebrow";
 
@@ -50,6 +51,18 @@ export interface BlueprintNote {
   position: { top: string; left: string };
 }
 
+/** Optional "Dự án Đặc trưng" copy block, shown inside the header. */
+export interface BlueprintFeatured {
+  /** Small uppercase kicker, e.g. "Dự án Đặc trưng". */
+  eyebrow?: string;
+  /** Short descriptive paragraph about the project. */
+  description: string;
+  /** Href for the "Xem chi tiết dự án" link. */
+  linkHref: string;
+  /** Optional label override for the link. */
+  linkLabel?: string;
+}
+
 export interface BlueprintRevealProps {
   /** Small uppercase kicker above the title. */
   eyebrow?: string;
@@ -61,6 +74,12 @@ export interface BlueprintRevealProps {
   mainImage: BlueprintImage;
   /** Exactly (or roughly) 5 clickable notes placed around the photo. */
   notes: BlueprintNote[];
+  /**
+   * Optional "Dự án Đặc trưng" description + link, rendered inside the
+   * header beneath the title/location row (replaces the old standalone
+   * section that used to sit below this component on the homepage).
+   */
+  featured?: BlueprintFeatured;
 }
 
 export default function BlueprintReveal({
@@ -69,6 +88,7 @@ export default function BlueprintReveal({
   location,
   mainImage,
   notes,
+  featured,
 }: BlueprintRevealProps) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const active = notes.find((n) => n.id === activeId) ?? null;
@@ -148,6 +168,36 @@ export default function BlueprintReveal({
             <p className="text-ivory/50 md:text-right md:mb-1">{location}</p>
           )}
         </div>
+
+        {/* "Dự án Đặc trưng" copy — merged in from the old standalone
+            section that used to sit below this component. */}
+        {featured && (
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 mt-10 md:mt-14 pt-10 border-t border-champagne/10"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: EASE }}
+          >
+            <div className="lg:col-span-9">
+              <SectionEyebrow dark>
+                {featured.eyebrow ?? "Dự án Đặc trưng"}
+              </SectionEyebrow>
+              <p className="text-ivory/60 leading-relaxed text-lg max-w-none">
+                {featured.description}
+              </p>
+            </div>
+            <div className="lg:col-span-3 lg:col-start-10 flex items-start lg:items-end lg:justify-end">
+              <Link
+                href={featured.linkHref}
+                data-cursor
+                className="eyebrow text-ivory border-b border-champagne/40 pb-1 hover:text-champagne hover:border-champagne transition-all duration-300 tracking-widest3"
+              >
+                {featured.linkLabel ?? "Xem chi tiết dự án"}
+              </Link>
+            </div>
+          </motion.div>
+        )}
       </div>
 
       {/* Stage: hero photograph + floating notes (desktop/tablet) */}
@@ -552,6 +602,11 @@ export default function BlueprintReveal({
  *     },
  *     // ...4 more notes
  *   ]}
+ *   featured={{
+ *     eyebrow: "Dự án Đặc trưng",
+ *     description: signature.detail,
+ *     linkHref: `/portfolio/${signature.slug}`,
+ *   }}
  * />
  *
  * See lib/data.ts (sihFloors export) for a ready-made data set wired to
