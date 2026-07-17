@@ -498,7 +498,7 @@ export const clients = [
   {
     name: "Iris Partners",
     note: "Văn phòng luật, Quận 1, TP.HCM",
-    logo: "/images/logo/partners.svg",
+    logo: "/images/logo/logo iris2.webp",
   },
   {
     name: "Him Lam",
