@@ -136,7 +136,7 @@ export default function ExpertisePage() {
       className={`border-t border-line ${i % 2 === 1 ? "bg-paper" : ""}`}
       id={sector.slug}
     >
-      <div className="container-x py-20 md:py-28">
+      <div className="container-x py-16 md:py-20">
         <div
           className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center`}
         >
