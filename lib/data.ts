@@ -411,7 +411,7 @@ export const team = [
     name: "Nguyễn Dương Huy",
     role: "Người sáng lập & Giám đốc điều hành",
     bio: "Sáng lập ARTFIVE DESIGN năm 2009 và lãnh đạo studio phát triển từ một công ty thiết kế nội thất thành một tập đoàn thiết kế và xây dựng đầy đủ.",
-    image: "/images/leader/NguyenDuongHuy.webp",
+    image: "/images/leader/NguyenDuongHuy.svg",
   },
   {
     name: "TS. Kiến trúc sư Cao Anh Tuấn",
