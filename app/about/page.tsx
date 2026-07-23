@@ -32,7 +32,7 @@ export const metadata = {
      (studio, văn phòng, hoặc công trình tiêu biểu).
 */
 
-const historyImage = "/images/leader/NguyenDuongHuy.webp"; // TODO: thay bằng ảnh thật
+const historyImage = "/images/leader/NguyenDuongHuy.svg"; // TODO: thay bằng ảnh thật
 
 const licenses = [
   {
