@@ -9,7 +9,6 @@ import CustomCursor from "@/components/CustomCursor";
 
 const fraunces = Fraunces({
   subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
@@ -18,7 +17,6 @@ const fraunces = Fraunces({
 
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "500", "600"],
   variable: "--font-body",
   display: "swap",
   preload: true,

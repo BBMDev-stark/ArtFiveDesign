@@ -12,7 +12,7 @@ const posts = [
   {
     tag: "Thực hành",
     title: "Bài học từ quan hệ đối tác năm 2013 về bàn giao trọn gói",
-    image: "/images/cp-lab-thailand-office.svg",
+    image: "/images/cp-lab-thailand-office.webp",
     body: [
       "Năm 2013, Tập đoàn C.P. Thái Lan đã chọn ARTFIVE DESIGN làm đối tác thiết kế, xây dựng và nội thất trọn gói tại Việt Nam. Hơn một thập kỷ và nhiều tỉnh sau — Bình Phước, Biên Hòa, Hà Nội, Kiên Giang, Bạc Liêu — mối quan hệ đó vẫn là nghiên cứu tình huống rõ ràng nhất về những gì bàn giao trọn gói thực sự đòi hỏi.",
       "Đó không phải là một hợp đồng lớn. Đó là một trụ sở văn phòng, rồi phòng thí nghiệm, rồi ký túc xá, rồi trại tôm giống — mỗi cái với yêu cầu khác nhau, địa điểm khác nhau, và cùng một khách hàng theo dõi tính nhất quán. Bài học là về quy trình, không phải thẩm mỹ: việc lựa chọn vật liệu cẩn thận, chi tiết ngay từ đầu dự án là điều bảo vệ chất lượng của nó vào lúc hoàn thành. Một đối tác trọn gói phải làm đúng bước đó mỗi lần, trên mọi loại công trình, nếu không mối quan hệ không thể tồn tại qua dự án thứ hai — chứ đừng nói dự án thứ mười.",
@@ -21,7 +21,7 @@ const posts = [
   {
     tag: "Y tế",
     title: "Thiết kế sự bình yên vào mặt bằng lâm sàng",
-    image: "/images/BenhVienSIH1.svg",
+    image: "/images/BenhVienSIH1.webp",
     body: [
       "Nội thất bệnh viện mang những ràng buộc mà công việc nhà ở và văn phòng không có: kiểm soát nhiễm trùng, khoảng trống thiết bị, quy trình làm việc của nhân viên, và một khách hàng mà theo định nghĩa không đang có ngày tốt nhất. Tại Bệnh viện SIH Quận 1, yêu cầu của chúng tôi bao gồm sảnh chính tầng trệt, tầng khám bệnh, khoa nội trú và các phòng bệnh VIP, Tiêu chuẩn, S.VIP — mỗi cái với chương trình chức năng riêng, tất cả cần cảm giác như một công trình nhất quán.",
       "Bản năng trong thiết kế lâm sàng thường là để chức năng chi phối mọi thứ và coi bầu không khí như một xa xỉ. Chúng tôi nhận thấy điều ngược lại hiệu quả hơn: bảng màu vật liệu bình yên và dẫn đường rõ ràng không phải là trang trí trên một bệnh viện đang hoạt động — chúng là một phần của cách bệnh viện vận hành, cho bệnh nhân và cho nhân viên di chuyển qua nó cả ngày.",
@@ -30,7 +30,7 @@ const posts = [
   {
     tag: "Sản xuất",
     title: "Tại sao chúng tôi tự sản xuất nội thất",
-    image: "/images/ARTFIVE6.svg",
+    image: "/images/ARTFIVE6.webp",
     body: [
       "ARTFIVE DESIGN vận hành xưởng sản xuất nội thất và gia công của riêng tại Phường Long Bình, Thành phố Thủ Đức — một quyết định được đưa ra sớm, khi studio vẫn chủ yếu là công ty thiết kế nội thất. Nó thay đổi ý nghĩa của 'trọn gói' trong thực tế. Một ý đồ thiết kế không phải vượt qua việc chuyển giao cho bên thứ ba có ưu tiên khác và khái niệm dung sai khác.",
       "Sản xuất nội bộ chậm hơn để thiết lập và khó hơn để vận hành so với việc đơn giản chỉ định nội thất từ danh mục. Nhưng đó là lý do chúng tôi có thể giữ một điểm trách nhiệm duy nhất từ bản vẽ đầu tiên đến bàn giao cuối cùng — đó là, cuối cùng, lời hứa mà một studio trọn gói thực sự đang thực hiện.",

@@ -32,7 +32,7 @@ export default function ClientsPage() {
     <>
       <section className="relative h-[55vh] min-h-[420px] bg-ink overflow-hidden">
         <Image
-          src="/images/ECOGREEN7.svg"
+          src="/images/ECOGREEN7.webp"
           alt="Văn phòng Unilever, Bắc Ninh"
           fill
           priority

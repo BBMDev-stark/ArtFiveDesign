@@ -38,42 +38,42 @@ export const sectors = [
     name: "Y tế",
     description:
       "Môi trường lâm sàng được thiết kế để tạo sự bình yên — các phòng bệnh nhân, tầng khám bệnh và sảnh bệnh viện được thiết kế xoay quanh sự tôn trọng, dẫn đường rõ ràng và vận hành chính xác.",
-    image: "/images/3.svg",
+    image: "/images/3.webp",
   },
   {
     slug: "hospitality",
     name: "Khách sạn & Nhà hàng",
     description:
       "Nội thất khách sạn 5 sao cả phía sau và phía trước, không gian ẩm thực cao cấp được xây dựng cho bầu không khí và sự bền vững.",
-    image: "/images/DORMITORY3.svg",
+    image: "/images/DORMITORY3.webp",
   },
   {
     slug: "office",
     name: "Văn phòng & Doanh nghiệp",
     description:
       "Trụ sở và nội thất văn phòng cho các doanh nghiệp đa quốc gia — nơi thương hiệu, văn hóa và hiệu quả vận hành hội tụ trên cùng một mặt bằng.",
-    image: "/images/OFFICE4.svg",
+    image: "/images/OFFICE4.webp",
   },
   {
     slug: "industrial",
     name: "Công nghiệp",
     description:
       "Văn phòng nhà máy, phòng thí nghiệm, ký túc xá và cơ sở sản xuất được hoàn thành với cùng tiêu chuẩn như các công trình đối ngoại.",
-    image: "/images/SHRIMP3.svg",
+    image: "/images/SHRIMP3.webp",
   },
   {
     slug: "residential",
     name: "Căn hộ & Biệt thự",
     description:
       "Biệt thự và căn hộ riêng tại Thành phố Hồ Chí Minh, được thiết kế theo cách sống thực sự của mỗi gia đình.",
-    image: "/images/PARKLEGEND4.svg",
+    image: "/images/PARKLEGEND4.webp",
   },
   {
     slug: "international",
     name: "Quốc tế",
     description:
       "Thi công xuyên biên giới cho khách hàng tổ chức và doanh nghiệp, bao gồm các tổ chức có trụ sở tại Singapore và Thái Lan hoạt động tại Việt Nam.",
-    image: "/images/cp-lab-thailand-office.svg",
+    image: "/images/cp-lab-thailand-office.webp",
   },
 ];
 
@@ -103,15 +103,15 @@ export const projects: Project[] = [
     detail:
       "ARTFIVE DESIGN đã thực hiện thiết kế nội thất và thi công trọn gói cho nhiều khoa của Bệnh viện SIH, bao gồm sảnh chính tầng trệt, khoa khám bệnh tầng 1, khoa nội trú tầng 6, và các phòng bệnh Tiêu chuẩn, VIP và S.VIP. Yêu cầu là tạo ra môi trường lâm sàng mang cảm giác bình yên và đáng trọng thay vì mang tính bệnh viện — bề mặt bền vững và dẫn đường rõ ràng kết hợp với bảng màu vật liệu ấm áp phù hợp cho bệnh nhân và gia đình họ.",
   gallery: [
-    "/images/1.svg",
-    "/images/2.svg",
-    "/images/6.svg",
-    "/images/4.svg",
-    "/images/5.svg",
-    "/images/6.svg",
-    "/images/BenhVienSIH1.svg",
-    "/images/BenhVienSIH2.svg",
-    "/images/BenhVienSIH3.svg",
+    "/images/1.webp",
+    "/images/2.webp",
+    "/images/6.webp",
+    "/images/4.webp",
+    "/images/5.webp",
+    "/images/6.webp",
+    "/images/BenhVienSIH1.webp",
+    "/images/BenhVienSIH2.webp",
+    "/images/BenhVienSIH3.webp",
   ],
 },
   {
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     client: "Qualgo Technologies",
     location: "An Phú, Quận 2, Thành phố Hồ Chí Minh",
     sector: ["office"],
-    image: "/images/QUALGO.svg",
+    image: "/images/QUALGO.webp",
     excerpt:
       "Không gian văn phòng công nghệ tại Trần Bạch Đằng, An Phú — được xây dựng cho đội ngũ phần mềm năng động.",
     detail:
@@ -166,7 +166,7 @@ export const projects: Project[] = [
     name: "Văn phòng An Phú Gia",
     location: "Quận Bình Thạnh, Thành phố Hồ Chí Minh",
     sector: ["office"],
-    image: "/images/ANPHUGIA.svg",
+    image: "/images/ANPHUGIA.webp",
     excerpt:
       "Nội thất văn phòng doanh nghiệp tại Quận Bình Thạnh, cân bằng quy hoạch không gian hiệu quả với bảng màu vật liệu cao cấp.",
     detail:
@@ -178,7 +178,7 @@ export const projects: Project[] = [
     client: "Iris Partners",
     location: "Quận 1, Thành phố Hồ Chí Minh",
     sector: ["office"],
-    image: "/images/OFFICEIRISPARTNERS.svg",
+    image: "/images/OFFICEIRISPARTNERS.webp",
     excerpt:
       "Văn phòng luật tại Quận 1 được thiết kế để thể hiện sự kín đáo, bền vững và quyền uy yên tĩnh.",
     detail:
@@ -190,7 +190,7 @@ export const projects: Project[] = [
     client: "Tập đoàn C.P. Thái Lan",
     location: "Bình Phước, Việt Nam",
     sector: ["industrial", "office", "international"],
-    image: "/images/cp-lab-thailand-office.svg",
+    image: "/images/cp-lab-thailand-office.webp",
     excerpt:
       "Nội thất văn phòng phòng thí nghiệm cho cơ sở C.P. Group Thái Lan tại Bình Phước, một phần trong quan hệ hợp tác trọn gói lâu dài.",
     detail:
@@ -202,18 +202,18 @@ export const projects: Project[] = [
     client: "Cộng đồng cư dân Him Lam",
     location: "Quận 7, Thành phố Hồ Chí Minh",
     sector: ["residential"],
-    image: "/images/villatanhung1.svg",
+    image: "/images/villatanhung1.webp",
     excerpt:
       "Nội thất biệt thự riêng trong cộng đồng cư dân Himlam Tân Hưng tại Quận 7.",
     detail:
       "Biệt thự riêng này trong cộng đồng Himlam Tân Hưng, Quận 7 được thiết kế cho một gia đình cư dân — nội thất nhà ở được xây dựng xoay quanh cách thực sế của hộ gia đình sống, thay vì một bố trí theo tiêu chuẩn trưng bày.",
   gallery: [
-    "/images/villatanhung.svg",
-    "/images/villatanhung2.svg",
-    "/images/villatanhung3.svg",
-    "/images/villatanhung4.svg",
-    "/images/villatanhung5.svg",
-    "/images/villatanhung1.svg",
+    "/images/villatanhung.webp",
+    "/images/villatanhung2.webp",
+    "/images/villatanhung3.webp",
+    "/images/villatanhung4.webp",
+    "/images/villatanhung5.webp",
+    "/images/villatanhung1.webp",
   ],
     },
   {
@@ -222,17 +222,17 @@ export const projects: Project[] = [
     client: "Unilever",
     location: "Bắc Ninh, Việt Nam",
     sector: ["office", "industrial", "international"],
-    image: "/images/OFFICE1.svg",
+    image: "/images/OFFICE1.webp",
     excerpt:
       "Nội thất văn phòng cho hoạt động Unilever tại Bắc Ninh — không gian làm việc cho nhà sản xuất hàng tiêu dùng toàn cầu.",
     detail:
       "Văn phòng Unilever tại Bắc Ninh được thực hiện cho một trong những nhà sản xuất hàng tiêu dùng lớn nhất thế giới, đòi hỏi nội thất văn phòng đáp ứng tiêu chuẩn doanh nghiệp quốc tế đồng thời hỗ trợ hoạt động hàng ngày của nhà máy.",
   gallery: [
-    "/images/OFFICE1.svg",
-    "/images/OFFICE2.svg",
-    "/images/OFFICE3.svg",
-    "/images/OFFICE4.svg",
-    "/images/OFFICE5.svg",
+    "/images/OFFICE1.webp",
+    "/images/OFFICE2.webp",
+    "/images/OFFICE3.webp",
+    "/images/OFFICE4.webp",
+    "/images/OFFICE5.webp",
   ],
     },
   {
@@ -240,21 +240,21 @@ export const projects: Project[] = [
     name: "Căn hộ Eco Green View",
     location: "Quận 7, Thành phố Hồ Chí Minh",
     sector: ["residential"],
-    image: "/images/ECOGREEN1.svg",
+    image: "/images/ECOGREEN1.webp",
     excerpt:
       "Nội thất căn hộ tại dự án Eco Green View, Quận 7.",
     detail:
       "Căn hộ Eco Green View được thiết kế cho mục đích ở riêng tư tại Quận 7 — nội thất trọn gói từ quy hoạch không gian đến trang trí.",
    gallery: [
-    "/images/ECOGREEN1.svg",
-    "/images/ECOGREEN2.svg",
-    "/images/ECOGREEN3.svg",
-    "/images/ECOGREEN4.svg",
-    "/images/ECOGREEN5.svg",
-    "/images/ECOGREEN6.svg",
-    "/images/ECOGREEN7.svg",
-    "/images/ECOGREEN8.svg",
-    "/images/ECOGREEN9.svg",
+    "/images/ECOGREEN1.webp",
+    "/images/ECO GREEN2.webp",
+    "/images/ECOGREEN3.webp",
+    "/images/ECOGREEN4.webp",
+    "/images/ECOGREEN5.webp",
+    "/images/ECOGREEN6.webp",
+    "/images/ECOGREEN7.webp",
+    "/images/ECOGREEN8.webp",
+    "/images/ECOGREEN9.webp",
   ],
     },
   {
@@ -262,17 +262,17 @@ export const projects: Project[] = [
     name: "Maple Land",
     location: "Quận 2, Thành phố Hồ Chí Minh",
     sector: ["residential"],
-    image: "/images/MAPLELAND1.svg",
+    image: "/images/MAPLELAND1.webp",
     excerpt:
       "Dự án nội thất nhà ở tại Quận 2, một phần trong danh mục nhà ở riêng của ARTFIVE DESIGN.",
     detail:
       "Maple Land tại Quận 2 là dự án nội thất nhà ở riêng do ARTFIVE DESIGN thực hiện, kết hợp dịch vụ thiết kế và trang trí trọn gói trong một phạm vi công việc.",
   gallery: [
-    "/images/MAPLELAND1.svg",
-    "/images/MAPLELAND2.svg",
-    "/images/MAPLELAND3.svg",
-    "/images/MAPLELAND4.svg",
-    "/images/MAPLELAND5.svg",
+    "/images/MAPLELAND1.webp",
+    "/images/MAPLELAND2.webp",
+    "/images/MAPLELAND3.webp",
+    "/images/MAPLELAND4.webp",
+    "/images/MAPLELAND5.webp",
   ],
     },
   {
@@ -280,15 +280,15 @@ export const projects: Project[] = [
     name: "Nhà hàng Mẹ Tôi",
     location: "Quận 1, Thành phố Hồ Chí Minh",
     sector: ["hospitality"],
-    image: "/images/MOTHER1.svg",
+    image: "/images/MOTHER1.webp",
     excerpt:
       "Không gian ẩm thực tại Quận 1 — thiết kế nội thất khách sạn tạo bầu không khí và khách quen.",
     detail:
       "Nhà hàng Mẹ Tôi tại Quận 1 đòi hỏi một phòng ăn mang cảm giác được cân nhắc kỹ lưỡng và bền vững thay vì theo xu hướng — nội thất khách sạn được thiết kế để hỗ trợ cả dịch vụ hàng ngày lẫn bản sắc dài hạn của nhà hàng.",
   gallery: [
-    "/images/MOTHER1.svg",
-    "/images/MOTHER2.svg",
-    "/images/MOTHER3.svg",
+    "/images/MOTHER1.webp",
+    "/images/MOTHER2.webp",
+    "/images/MOTHER3.webp",
   ],
     },
   {
@@ -297,21 +297,21 @@ export const projects: Project[] = [
     client: "Tập đoàn C.P. Thái Lan",
     location: "Kiên Giang, Việt Nam",
     sector: ["industrial", "international"],
-    image: "/images/SHRIMP1.svg",
+    image: "/images/SHRIMP1.webp",
     excerpt:
       "Nội thất và công trình cơ sở cho Tập đoàn C.P. Thái Lan tại Kiên Giang.",
     detail:
       "Được thực hiện cho Tập đoàn C.P. Thái Lan tại Kiên Giang, công trình này phản ánh năng lực công nghiệp của ARTFIVE DESIGN — nội thất thực dụng, bền vững được kỹ thuật cho môi trường doanh nghiệp.",
   gallery: [
-    "/images/SHRIMP1.svg",
-    "/images/SHRIMP2.svg",
-    "/images/SHRIMP3.svg",
-    "/images/SHRIMP4.svg",
-    "/images/SHRIMP5.svg",
-    "/images/SHRIMP6.svg",
-    "/images/SHRIMP7.svg",
-    "/images/SHRIMP8.svg",
-    "/images/SHRIMP9.svg",
+    "/images/SHRIMP1.webp",
+    "/images/SHRIMP2.webp",
+    "/images/SHRIMP3.webp",
+    "/images/SHRIMP4.webp",
+    "/images/SHRIMP5.webp",
+    "/images/SHRIMP6.webp",
+    "/images/SHRIMP7.webp",
+    "/images/SHRIMP8.webp",
+    "/images/SHRIMP9.webp",
   ],
     },
   {
@@ -319,17 +319,17 @@ export const projects: Project[] = [
     name: "Căn hộ Park Legend",
     location: "Quận Tân Bình, Thành phố Hồ Chí Minh",
     sector: ["residential"],
-    image: "/images/PARKLEGEND.svg",
+    image: "/images/PARKLEGEND.webp",
     excerpt:
       "Nội thất căn hộ tại Quận Tân Bình, Thành phố Hồ Chí Minh.",
     detail:
       "Căn hộ Park Legend tại Quận Tân Bình là dự án nội thất nhà ở riêng được ARTFIVE DESIGN thực hiện từ đầu đến cuối, từ phát triển thiết kế đến nội thất và trang trí.",
   gallery: [
-    "/images/PARKLEGEND.svg",
-    "/images/PARKLEGEND1.svg",
-    "/images/PARKLEGEND2.svg",
-    "/images/PARKLEGEND3.svg",
-    "/images/PARKLEGEND4.svg",
+    "/images/PARKLEGEND.webp",
+    "/images/PARKLEGEND1.webp",
+    "/images/PARKLEGEND2.webp",
+    "/images/PARKLEGEND3.webp",
+    "/images/PARKLEGEND4.webp",
   ],
     },
   {
@@ -338,15 +338,15 @@ export const projects: Project[] = [
     client: "Tập đoàn C.P. Thái Lan",
     location: "Biên Hòa, Việt Nam",
     sector: ["industrial", "residential", "international"],
-    image: "/images/DORMITORY1.svg",
+    image: "/images/DORMITORY1.webp",
     excerpt:
       "Nội thất của Tập đoàn C.P. Thái Lan tại Biên Hòa.",
     detail:
       "Nội thật được thực hiện cho Tập đoàn C.P. Thái Lan như một phần trong khuôn viên vận hành rộng hơn của tập đoàn — nội thất chỗ ở chức năng, được xây dựng tốt nhất.",
   gallery: [
-    "/images/DORMITORY1.svg",
-    "/images/DORMITORY2.svg",
-    "/images/DORMITORY3.svg",
+    "/images/DORMITORY1.webp",
+    "/images/DORMITORY2.webp",
+    "/images/DORMITORY3.webp",
   ],
     },
   {
@@ -355,17 +355,17 @@ export const projects: Project[] = [
     client: "Tập đoàn C.P. Thái Lan",
     location: "Hà Nội, Việt Nam",
     sector: ["office", "international"],
-    image: "/images/Hanoi1.svg",
+    image: "/images/Hanoi1.webp",
     excerpt:
       "Nội thất văn phòng doanh nghiệp cho hoạt động của Tập đoàn C.P. Thái Lan tại Hà Nội, mở rộng quan hệ đối tác của chúng tôi ra miền Bắc Việt Nam.",
     detail:
       "Văn phòng C.P. Hà Nội mở rộng quan hệ hợp tác trọn gói của ARTFIVE DESIGN với Tập đoàn C.P. Thái Lan vào miền Bắc Việt Nam, mang theo cùng tiêu chuẩn thiết kế và xây dựng đã thiết lập trên các dự án của tập đoàn ở phía Nam.",
   gallery: [
-    "/images/Hanoi1.svg",
-    "/images/Hanoi2.svg",
-    "/images/Hanoi3.svg",
-    "/images/Hanoi4.svg",
-    "/images/Hanoi5.svg",
+    "/images/Hanoi1.webp",
+    "/images/Hanoi2.webp",
+    "/images/Hanoi3.webp",
+    "/images/Hanoi4.webp",
+    "/images/Hanoi5.webp",
   ],
     },
   {
@@ -374,15 +374,15 @@ export const projects: Project[] = [
     client: "Tập đoàn C.P. Thái Lan",
     location: "Biên Hòa, Việt Nam",
     sector: ["office", "international"],
-    image: "/images/h2o1.svg",
+    image: "/images/h2o1.webp",
     excerpt:
       "Khái niệm thiết kế văn phòng thứ hai được phát triển cho Tập đoàn C.P. Thái Lan tại Biên Hòa.",
     detail:
       "Concept H.O. 2 là khái niệm thiết kế văn phòng được phát triển cho Tập đoàn C.P. Thái Lan tại Biên Hòa, tiếp nối ngôn ngữ thiết kế đã thiết lập qua các dự án ARTFIVE DESIGN trước đó của tập đoàn tại Việt Nam.",
   gallery: [
-    "/images/h2o1.svg",
-    "/images/h2o2.svg",
-    "/images/h2o3.svg",
+    "/images/h2o1.webp",
+    "/images/h2o2.webp",
+    "/images/h2o3.webp",
   ],
     },
   {
@@ -390,18 +390,18 @@ export const projects: Project[] = [
     name: "Xưởng Nội thất ARTFIVE",
     location: "Phường Long Bình, Thành phố Thủ Đức",
     sector: ["industrial"],
-    image: "/images/ARTFIVE1.svg",
+    image: "/images/ARTFIVE1.webp",
     excerpt:
       "Cơ sở sản xuất nội thất của chúng tôi — xưởng tích hợp đứng sau mỗi nội thất trọn gói mà chúng tôi thực hiện.",
     detail:
       "Xưởng sản xuất nội thất và gia công của riêng chúng tôi tại Phường Long Bình, Thành phố Thủ Đức là điều làm cho mô hình trọn gói của ARTFIVE DESIGN có thể thực hiện được — thiết kế, gia công và lắp đặt nằm dưới một mái nhà, để chất lượng được kiểm soát từ bản vẽ đến bàn giao.",
   gallery: [
-    "/images/ARTFIVE1.svg",
-    "/images/ARTFIVE2.svg",
-    "/images/ARTFIVE3.svg",
-    "/images/ARTFIVE4.svg",
-    "/images/ARTFIVE5.svg",
-    "/images/ARTFIVE6.svg",
+    "/images/ARTFIVE1.webp",
+    "/images/ARTFIVE2.webp",
+    "/images/ARTFIVE3.webp",
+    "/images/ARTFIVE4.webp",
+    "/images/ARTFIVE5.webp",
+    "/images/ARTFIVE6.webp",
   ],
     },
 ];
@@ -411,25 +411,25 @@ export const team = [
     name: "Nguyễn Dương Huy",
     role: "Người sáng lập & Giám đốc điều hành",
     bio: "Sáng lập ARTFIVE DESIGN năm 2009 và lãnh đạo studio phát triển từ một công ty thiết kế nội thất thành một tập đoàn thiết kế và xây dựng đầy đủ.",
-    image: "/images/leader/NguyenDuongHuy.svg",
+    image: "/images/leader/NguyenDuongHuy.webp",
   },
   {
     name: "TS. Kiến trúc sư Cao Anh Tuấn",
     role: "Kiến trúc sư trưởng · Tiến sĩ, Kiến trúc & Quy hoạch Đô thị",
     bio: "Có bằng Tiến sĩ về Kiến trúc và Quy hoạch Đô thị. Từng là chuyên gia kiến trúc cho các nhà phát triển lớn của Việt Nam, và giảng dạy tại trường đại học kiến trúc. Đã lãnh đạo hoặc đóng góp vào công tác quy hoạch tại Khu đô thị Thủ Thiêm, Quận dân cư PMLA, Khu nghỉ dưỡng Thịnh Phát Charm và Diamond Lotus Riverside.",
-    image: "/images/leader/CaoAnhTuan.svg",
+    image: "/images/leader/CaoAnhTuan.webp",
   },
   {
     name: "Sơn Nguyễn",
     role: "Giám đốc Thiết kế",
     bio: "Lãnh đạo hướng thiết kế trên các dự án nội thất của ARTFIVE DESIGN.",
-    image: "/images/leader/SonNguyen.svg",
+    image: "/images/leader/SonNguyen.webp",
   },
   {
     name: "Hòa Âu",
     role: "Giám đốc Dự án",
     bio: "Điều phối việc bàn giao dự án, từ ý đồ thiết kế đến xây dựng và bàn giao trọn gói.",
-    image: "/images/leader/HoaAu.svg",
+    image: "/images/leader/HoaAu.webp",
   },
 ];
 

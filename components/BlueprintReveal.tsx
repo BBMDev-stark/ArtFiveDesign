@@ -228,7 +228,6 @@ export default function BlueprintReveal({
                 fill
                 sizes="(min-width: 1024px) 70vw, 90vw"
                 className="object-cover"
-                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A1118]/50 via-transparent to-transparent" />
             </motion.div>
@@ -370,7 +369,6 @@ export default function BlueprintReveal({
             fill
             sizes="100vw"
             className="object-cover"
-            priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A1118]/60 via-transparent to-transparent" />
         </div>
@@ -569,7 +567,6 @@ export default function BlueprintReveal({
                 fill
                 sizes="90vw"
                 className="object-contain"
-                priority
               />
             </motion.div>
           </motion.div>

@@ -32,7 +32,7 @@ export const metadata = {
      (studio, văn phòng, hoặc công trình tiêu biểu).
 */
 
-const historyImage = "/images/leader/NguyenDuongHuy.svg"; // TODO: thay bằng ảnh thật
+const historyImage = "/images/leader/NguyenDuongHuy.webp"; // TODO: thay bằng ảnh thật
 
 const licenses = [
   {
@@ -73,7 +73,7 @@ export default function AboutPage() {
       {/* HERO */}
       <section className="relative h-[64vh] min-h-[540px] bg-ink overflow-hidden">
         <Image
-          src="/images/OFFICE1.svg"
+          src="/images/OFFICE1.webp"
           alt="Công việc nội thất studio ARTFIVE DESIGN"
           fill
           priority
@@ -145,7 +145,7 @@ export default function AboutPage() {
         <Reveal delay={0.15}>
           <div className="relative aspect-[16/9] w-full mt-8 overflow-hidden">
             <Image
-              src="/images/BenhVienSIH2.svg"
+              src="/images/BenhVienSIH2.webp"
               alt="Tầm nhìn toàn cầu của ARTFIVE DESIGN"
               fill
               sizes="(min-width: 1024px) 35vw, 90vw"
@@ -189,7 +189,7 @@ export default function AboutPage() {
         <Reveal delay={0.2}>
           <div className="relative aspect-[16/9] w-full mt-8 overflow-hidden">
             <Image
-              src="/images/OFFICEIRISPARTNERS.svg"
+              src="/images/OFFICEIRISPARTNERS.webp"
               alt="Công trình tiêu biểu của ARTFIVE DESIGN"
               fill
               sizes="(min-width: 1024px) 45vw, 90vw"

@@ -63,7 +63,7 @@ export default function ExpertisePage() {
       {/* HERO */}
       <section className="relative h-[55vh] min-h-[480px] bg-ink overflow-hidden">
         <Image
-          src="/images/BenhVienSIH5.svg"
+          src="/images/BenhVienSIH5.webp"
           alt="Chi tiết nội thất lâm sàng"
           fill
           priority

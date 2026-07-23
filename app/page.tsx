@@ -162,6 +162,7 @@ export default function HomePage() {
                 src={project.image}
                 alt={project.name}
                 fill
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -190,7 +191,7 @@ export default function HomePage() {
         eyebrow="Từ Bản vẽ → Đến Công trình"
         title={signature.name}
         location={signature.location}
-        mainImage={{ src: "/images/BenhVienSIH.svg", alt: "Bệnh viện SIH" }}
+        mainImage={{ src: "/images/BenhVienSIH.webp", alt: "Bệnh viện SIH" }}
         notes={sihFloors}
         featured={{
           eyebrow: "Dự án Đặc trưng",

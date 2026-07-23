@@ -2,21 +2,37 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 import { nav } from "@/lib/data";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const scrolledRef = useRef(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    onScroll();
+    let frame: number | null = null;
+
+    const update = () => {
+      frame = null;
+      const next = window.scrollY > 50;
+      if (next === scrolledRef.current) return;
+      scrolledRef.current = next;
+      setScrolled(next);
+    };
+
+    const onScroll = () => {
+      if (frame === null) frame = window.requestAnimationFrame(update);
+    };
+
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame !== null) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {
@@ -27,7 +43,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-smooth ${
         scrolled || open
-          ? "bg-ivory/70 backdrop-blur-md border-b border-line shadow-soft"
+          ? "bg-ivory/95 border-b border-line shadow-soft"
           : "bg-transparent"
       }`}
     >
@@ -90,49 +106,53 @@ export default function Header() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.nav
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-            className="lg:hidden overflow-hidden bg-ivory/98 backdrop-blur-md border-b border-line"
-            aria-label="Di động"
-          >
-            <ul className="container-x flex flex-col py-8 gap-6">
-              {nav.map((item, i) => (
-                <motion.li
-                  key={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <Link
-                    href={item.href}
-                    className="font-serif text-2xl text-charcoal hover:text-bronze transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </motion.li>
-              ))}
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: nav.length * 0.05 }}
-                className="pt-4"
+      <nav
+        className={`grid border-b border-line bg-ivory transition-[grid-template-rows,opacity] duration-300 ease-smooth lg:hidden ${
+          open
+            ? "grid-rows-[1fr] opacity-100"
+            : "pointer-events-none grid-rows-[0fr] border-transparent opacity-0"
+        }`}
+        aria-label="Di động"
+        aria-hidden={!open}
+      >
+        <div className="overflow-hidden">
+          <ul className="container-x flex flex-col gap-6 py-8">
+            {nav.map((item, i) => (
+              <li
+                key={item.href}
+                className={`transition-[opacity,transform] duration-300 ${
+                  open ? "translate-x-0 opacity-100" : "-translate-x-3 opacity-0"
+                }`}
+                style={{ transitionDelay: open ? `${i * 35}ms` : "0ms" }}
               >
                 <Link
-                  href="/contact"
-                  className="eyebrow text-bronze tracking-widest3"
+                  href={item.href}
+                  className="font-serif text-2xl text-charcoal transition-colors hover:text-bronze"
+                  tabIndex={open ? undefined : -1}
                 >
-                  Bắt đầu Dự án →
+                  {item.label}
                 </Link>
-              </motion.li>
-            </ul>
-          </motion.nav>
-        )}
-      </AnimatePresence>
+              </li>
+            ))}
+            <li
+              className={`pt-4 transition-[opacity,transform] duration-300 ${
+                open ? "translate-x-0 opacity-100" : "-translate-x-3 opacity-0"
+              }`}
+              style={{
+                transitionDelay: open ? `${nav.length * 35}ms` : "0ms",
+              }}
+            >
+              <Link
+                href="/contact"
+                className="eyebrow text-bronze tracking-widest3"
+                tabIndex={open ? undefined : -1}
+              >
+                Bắt đầu Dự án →
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
   );
 }

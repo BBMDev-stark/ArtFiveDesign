@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -15,6 +15,25 @@ body {
   font-feature-settings: "liga" 1, "kern" 1;
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+/* Lightweight texture: avoids a full-screen animated SVG turbulence filter. */
+.site-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.022;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0 0.6px, transparent 0.8px),
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,0.9) 0 0.55px, transparent 0.8px);
+  background-size: 7px 7px, 9px 9px;
+}
+
+@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+  .site-grain {
+    display: none;
+  }
 }
 
 /* Enhanced typography for luxury professional look */
@@ -49,6 +68,7 @@ select:focus-visible,
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
 }
 
 /* Premium eyebrow text */
@@ -131,11 +151,6 @@ select:focus-visible,
   }
 }
 
-/* Smooth hover transitions */
-a, button {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 /* Hide custom cursor on touch devices */
 html.custom-cursor,
 html.custom-cursor a,
@@ -178,6 +193,17 @@ html.custom-cursor button {
   .section-spacing {
     padding-top: 10rem;
     padding-bottom: 10rem;
+  }
+}
+
+/*
+ * Skip layout and paint work for below-the-fold page sections until they
+ * approach the viewport. The remembered intrinsic size prevents scroll jumps.
+ */
+@supports (content-visibility: auto) {
+  main > section:not(:first-child) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
   }
 }
 
