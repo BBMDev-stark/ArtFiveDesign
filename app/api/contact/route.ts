@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 const DEFAULT_RECIPIENT = "hello@art5design.com";
-const DEFAULT_SENDER = "ARTFIVE Website <website@mail.art5design.com>";
+const DEFAULT_SENDER = "ARTFIVE Website <website@contact.art5design.com>";
 const MAX_REQUEST_SIZE = 20_000;
 const RATE_LIMIT_WINDOW = 10 * 60 * 1000;
 const RATE_LIMIT_MAX = 5;
@@ -289,11 +289,14 @@ export async function POST(request: Request) {
         resendResponse.status,
         errorBody.slice(0, 500),
       );
+
+      const configurationMessage =
+        resendResponse.status === 401 || resendResponse.status === 403
+          ? "Hệ thống gửi email chưa được xác thực. Vui lòng liên hệ trực tiếp qua hello@art5design.com."
+          : "Không thể gửi liên hệ lúc này. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua email.";
+
       return NextResponse.json(
-        {
-          message:
-            "Không thể gửi liên hệ lúc này. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua email.",
-        },
+        { message: configurationMessage },
         { status: 502 },
       );
     }
