@@ -84,7 +84,7 @@ export default function Header() {
           href="/contact"
           className="hidden lg:inline-flex items-center border border-[#8B7355] px-7 py-3 text-[#8B7355] hover:bg-[#8B7355] hover:text-ivory transition-all duration-400 tracking-widest3 text-sm"
         >
-          Bắt đầu Dự án
+          BẮT ĐẦU DỰ ÁN
         </Link>
 
         <button
