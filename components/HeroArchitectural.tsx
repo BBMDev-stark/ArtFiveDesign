@@ -54,7 +54,7 @@ const projects: Project[] = [
     src: "/images/TieuBieu2.webp",
     name: "Biệt thự Him Lam Tân Hưng",
     type: "Nhà ở",
-    location: "Quận 7, TP. Hồ Chí Minh",
+    location: "24 Đường Số 10, KĐTM Him Lam, P. Tân Hưng, Q.7, TP.HCM",
     scope: "Kiến trúc & Nội thất",
     summary:
       "Mặt tiền được tổ chức theo nhịp đứng rõ ràng, kết hợp các lớp mái, vòm và ánh sáng để tạo chiều sâu cho một khu đất đô thị hẹp.",

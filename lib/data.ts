@@ -7,10 +7,16 @@ export const company = {
   legalNameEn: "Art Five Design Corporation",
   founded: 2009,
   founder: "Nguyễn Dương Huy",
-  hq: "143 Hồ Văn Huê, Phường 9, Quận Phú Nhuận, Thành phố Hồ Chí Minh",
+  hq: "24 Đường Số 10, KĐTM Him Lam, Phường Tân Hưng, Quận 7, Ho Chi Minh City, Vietnam",
+  hqMapUrl:
+    "https://www.google.com/maps/search/?api=1&query=10.742242397629209%2C106.69780215403514",
+  hqMapEmbed:
+    "https://www.google.com/maps?q=10.742242397629209%2C106.69780215403514&z=18&hl=vi&output=embed",
   branch:
-    "Tầng 4, Tòa C, Căn 26–27, Tòa nhà Charmington La Pointe, 181 Cao Thắng, Phường 12, Quận 10, Thành phố Hồ Chí Minh",
+    "Tầng 3, Biệt thự Tân Hưng, 24 Đường Số 10, KĐTM Him Lam, Phường Tân Hưng, Quận 7, Thành phố Hồ Chí Minh, Việt Nam",
   workshop: "313 Phước Thiện, Phường Long Bình, Thành phố Thủ Đức",
+  phone: "+84 28 3620 3068",
+  hours: "Thứ 2 – Thứ 7: 08:30 – 17:30",
   email: "hello@art5design.com",
   website: "art5corp.com",
   taxCode: "0309190959",
@@ -198,15 +204,16 @@ export const projects: Project[] = [
   },
   {
     slug: "himlam-tan-hung-villa",
-    name: "Biệt thự Himlam Tân Hưng",
+    name: "Biệt thự Him Lam Tân Hưng",
     client: "Cộng đồng cư dân Him Lam",
-    location: "Quận 7, Thành phố Hồ Chí Minh",
+    location:
+      "24 Đường Số 10, KĐTM Him Lam, Phường Tân Hưng, Quận 7, Ho Chi Minh City, Vietnam",
     sector: ["residential"],
     image: "/images/villatanhung1.webp",
     excerpt:
-      "Nội thất biệt thự riêng trong cộng đồng cư dân Himlam Tân Hưng tại Quận 7.",
+      "Nội thất biệt thự tại 24 Đường Số 10, KĐTM Him Lam, Phường Tân Hưng, Quận 7.",
     detail:
-      "Biệt thự riêng này trong cộng đồng Himlam Tân Hưng, Quận 7 được thiết kế cho một gia đình cư dân — nội thất nhà ở được xây dựng xoay quanh cách thực sế của hộ gia đình sống, thay vì một bố trí theo tiêu chuẩn trưng bày.",
+      "Biệt thự riêng tại 24 Đường Số 10, KĐTM Him Lam, Phường Tân Hưng, Quận 7 được thiết kế cho một gia đình cư dân — nội thất nhà ở được xây dựng xoay quanh cách sống thực tế của gia đình, thay vì một bố trí theo tiêu chuẩn trưng bày.",
   gallery: [
     "/images/villatanhung.webp",
     "/images/villatanhung2.webp",

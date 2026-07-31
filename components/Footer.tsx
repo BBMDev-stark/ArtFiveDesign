@@ -49,12 +49,26 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <p className="eyebrow text-ivory/40 mb-8 tracking-widest3">Liên hệ</p>
             <div className="space-y-4">
-              <p className="text-sm text-ivory/70 leading-relaxed">
+              <a
+                href={company.hqMapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group block text-sm text-ivory/70 leading-relaxed transition-colors duration-300 hover:text-champagne"
+                aria-label="Mở vị trí trụ sở chính ARTFIVE DESIGN trên Google Maps"
+              >
                 {company.hq}
-              </p>
-              <p className="text-sm text-ivory/70 leading-relaxed">
+                <span className="mt-2 block text-[10px] uppercase tracking-[0.2em] text-champagne/70 transition-colors group-hover:text-champagne">
+                  Xem trên Google Maps ↗
+                </span>
+              </a>
+              <a
+                href={company.hqMapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="block text-sm leading-relaxed text-ivory/70 transition-colors duration-300 hover:text-champagne"
+              >
                 {company.branch}
-              </p>
+              </a>
               <a
                 href={`mailto:${company.email}`}
                 className="text-sm text-champagne hover:text-ivory transition-colors duration-300 block mt-6"
