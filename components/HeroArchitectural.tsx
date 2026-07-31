@@ -132,7 +132,7 @@ const projects: Project[] = [
     id: 2,
     slug: "sih-hospital",
     src: "/images/BenhVienSIH.webp",
-    name: "Bệnh viện SIH",
+    name: "Bệnh viện Phụ sản Quốc tế Sài Gòn",
     type: "Y tế",
     location: "Quận 1, TP. Hồ Chí Minh",
     scope: "Thiết kế & Thi công nội thất",

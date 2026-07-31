@@ -93,7 +93,7 @@ export type Project = {
 export const projects: Project[] = [
   {
   slug: "sih-hospital",
-  name: "Bệnh viện SIH",
+  name: "Bệnh viện Phụ sản Quốc tế Sài Gòn",
   client: "Bệnh viện Quốc tế Sài Gòn (Sản Nhi)",
   location: "Quận 1, Thành phố Hồ Chí Minh",
   sector: ["healthcare"],

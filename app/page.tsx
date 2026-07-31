@@ -191,7 +191,7 @@ export default function HomePage() {
         eyebrow="Từ Bản vẽ → Đến Công trình"
         title={signature.name}
         location={signature.location}
-        mainImage={{ src: "/images/BenhVienSIH.webp", alt: "Bệnh viện SIH" }}
+        mainImage={{ src: "/images/BenhVienSIH.webp", alt: "Bệnh viện Phụ sản Quốc tế Sài Gòn" }}
         notes={sihFloors}
         featured={{
           eyebrow: "Dự án Đặc trưng",
@@ -322,7 +322,7 @@ export default function HomePage() {
       <section className="bg-ink text-ivory section-spacing text-center">
         <div className="container-x">
           <Reveal>
-            <p className="eyebrow text-champagne/80 mb-8 tracking-widest3">Bắt đầu Dự án</p>
+            <p className="eyebrow text-champagne/80 mb-8 tracking-widest3">BẮT ĐẦU DỰ ÁN</p>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl leading-[1.05] max-w-4xl mx-auto text-ivory tracking-tight">
               Hãy mang cùng sự kỷ luật đó đến công trình tiếp theo của bạn
             </h2>
