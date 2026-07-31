@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 import SectionEyebrow from "@/components/SectionEyebrow";
 import { company } from "@/lib/data";
@@ -83,86 +84,7 @@ export default function ContactPage() {
 
           <div className="lg:col-span-6 lg:col-start-7">
             <Reveal delay={0.1}>
-              <form className="space-y-8" aria-label="Form liên hệ dự án">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <label htmlFor="name" className="eyebrow text-charcoal/50 block mb-3">
-                      Họ và Tên
-                    </label>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      className="w-full bg-transparent border-b border-line focus:border-bronze py-3 text-charcoal outline-none transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="company" className="eyebrow text-charcoal/50 block mb-3">
-                      Công ty
-                    </label>
-                    <input
-                      id="company"
-                      name="company"
-                      type="text"
-                      className="w-full bg-transparent border-b border-line focus:border-bronze py-3 text-charcoal outline-none transition-colors"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <label htmlFor="email" className="eyebrow text-charcoal/50 block mb-3">
-                      Email
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      className="w-full bg-transparent border-b border-line focus:border-bronze py-3 text-charcoal outline-none transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="sector" className="eyebrow text-charcoal/50 block mb-3">
-                      Lĩnh vực Dự án
-                    </label>
-                    <select
-                      id="sector"
-                      name="sector"
-                      className="w-full bg-transparent border-b border-line focus:border-bronze py-3 text-charcoal outline-none transition-colors"
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Chọn một
-                      </option>
-                      <option>Y tế</option>
-                      <option>Khách sạn & Nhà hàng</option>
-                      <option>Văn phòng & Doanh nghiệp</option>
-                      <option>Công nghiệp</option>
-                      <option>Căn hộ & Biệt thự</option>
-                      <option>Quốc tế</option>
-                    </select>
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="message" className="eyebrow text-charcoal/50 block mb-3">
-                    Cho chúng tôi biết về dự án
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    required
-                    className="w-full bg-transparent border-b border-line focus:border-bronze py-3 text-charcoal outline-none transition-colors resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="eyebrow inline-flex border border-charcoal px-10 py-4 text-charcoal hover:bg-charcoal hover:text-ivory transition-colors duration-300"
-                >
-                  Gửi Liên hệ
-                </button>
-              </form>
+              <ContactForm />
             </Reveal>
           </div>
         </div>
