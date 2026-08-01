@@ -13,7 +13,6 @@ import {
   projects,
   process,
   clients,
-  philosophy,
 } from "@/lib/data";
 import { sihFloors } from "@/lib/blueprint-data";
 
@@ -30,36 +29,49 @@ export default function HomePage() {
       <HeroArchitectural />
 
       {/* ABOUT SECTION */}
-      <section className="section-spacing">
-        <div className="container-x">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <Reveal>
-                <SectionEyebrow>Về Chúng tôi</SectionEyebrow>
-                <h2 className="font-serif text-charcoal text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
-                  Tầm nhìn toàn cầu.<br />
-                  <span className="italic text-bronze">Sứ mệnh địa phương.</span>
-                </h2>
-              </Reveal>
+      <section className="home-about-showcase">
+        <div className="home-about-showcase__inner">
+          <Reveal>
+            <div className="home-about-showcase__heading">
+              <div className="home-about-showcase__eyebrow">
+                <span aria-hidden="true" />
+                <p>Về chúng tôi</p>
+              </div>
+              <h2>
+                Tầm nhìn<br />toàn cầu.
+                <em>Sứ mệnh<br />địa phương.</em>
+              </h2>
             </div>
-            <div className="lg:col-span-6 lg:col-start-7 space-y-8">
-              <Reveal delay={0.1}>
-                <p className="font-serif text-xl md:text-2xl text-charcoal/85 leading-relaxed">
-                  {philosophy.history}
-                </p>
-              </Reveal>
-              <Reveal delay={0.2}>
-                <p className="text-charcoal/60 text-lg leading-relaxed">
-                  {philosophy.product}
-                </p>
-                <Link
-                  href="/about"
-                  className="eyebrow inline-block mt-6 text-bronze border-b border-bronze/30 pb-0.5 hover:border-bronze hover:pb-0 transition-all duration-300 tracking-widest3"
-                >
-                  Câu chuyện của chúng tôi
-                </Link>
-              </Reveal>
+          </Reveal>
+
+          <div className="home-about-showcase__copy">
+            <Reveal delay={0.1}>
+              <p>
+                Được sáng lập và lãnh đạo từ năm 2009 bởi Ông Nguyễn Dương Huy,
+                ARTFIVE DESIGN CORPORATION là một công ty chuyên về thiết kế nội
+                thất và xây dựng chuyên nghiệp.
+              </p>
+            </Reveal>
+
+            <div className="home-about-showcase__divider" aria-hidden="true">
+              <span />
+              <i />
+              <span />
             </div>
+
+            <Reveal delay={0.2}>
+              <p>
+                Đội ngũ các nhà thiết kế trẻ, sáng tạo của chúng tôi mang đến cảm
+                nhận thẩm mỹ đặc biệt, kết hợp với phong cách tinh tế, thanh lịch,
+                đương đại — tiên phong trong việc áp dụng công nghệ và vật liệu mới,
+                theo dõi các xu hướng nội thất toàn cầu, để tạo ra không gian sống có
+                tính cách thực sự cho khách hàng.
+              </p>
+              <Link href="/about" className="home-about-showcase__link">
+                <span>Câu chuyện của chúng tôi</span>
+                <span aria-hidden="true">⟶</span>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -201,39 +213,50 @@ export default function HomePage() {
       />
 
       {/* PROCESS SECTION */}
-      <section className="section-spacing">
-        <div className="container-x">
-          <Reveal>
-            <SectionEyebrow>Cách chúng tôi làm việc</SectionEyebrow>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-charcoal mb-16 max-w-2xl leading-[1.1] tracking-tight">
-              Quy trình thiết kế xây dựng chuyên nghiệp
+      <section className="home-process-showcase">
+        <div className="home-process-showcase__inner">
+          <Reveal className="home-process-showcase__intro">
+            <div className="home-process-showcase__eyebrow">
+              <span aria-hidden="true" />
+              <p>Quy trình làm việc</p>
+            </div>
+            <h2>
+              Quy trình thiết kế<br />
+              xây dựng <em>chuyên nghiệp.</em>
             </h2>
+            <p className="home-process-showcase__lead">
+              Chúng tôi tin rằng một quy trình rõ ràng, khoa học chính là nền tảng
+              để tạo nên những công trình bền vững, tinh tế và vượt thời gian.
+            </p>
+            <Link href="/about" className="home-process-showcase__link">
+              <span>Tìm hiểu thêm về chúng tôi</span>
+              <span aria-hidden="true">⟶</span>
+            </Link>
           </Reveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-10">
+          <div className="home-process-showcase__cards">
             {process.map((step, i) => (
-              <Reveal key={step.step} delay={i * 0.12}>
-                <div className="group">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-charcoal mb-6">
+              <Reveal key={step.step} delay={i * 0.08}>
+                <article className="home-process-card group">
+                  <div className="home-process-card__image">
                     <Image
                       src={step.image}
                       alt={step.title}
                       fill
-                      sizes="(min-width: 1024px) 25vw, 100vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(min-width: 1440px) 270px, (min-width: 768px) 245px, 78vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
-                    <span className="font-serif absolute left-5 bottom-4 text-4xl lg:text-5xl text-ivory tracking-tight">
-                      {step.step}
-                    </span>
                   </div>
-                  <h3 className="font-serif text-xl lg:text-2xl text-charcoal mb-4">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-charcoal/55 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+                  <div className="home-process-card__body">
+                    <div className="home-process-card__meta">
+                      <span>{step.step}</span>
+                      <i aria-hidden="true">{["◌", "✎", "◇", "⌂"][i]}</i>
+                    </div>
+                    <span className="home-process-card__rule" aria-hidden="true" />
+                    <h3>{step.title}</h3>
+                    <p>{step.description}</p>
+                  </div>
+                </article>
               </Reveal>
             ))}
           </div>

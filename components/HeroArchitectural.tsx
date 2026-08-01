@@ -54,7 +54,7 @@ const projects: Project[] = [
     src: "/images/TieuBieu2.webp",
     name: "Biệt thự Him Lam Tân Hưng",
     type: "Nhà ở",
-    location: "24 Đường Số 10, KĐTM Him Lam, P. Tân Hưng, Q.7, TP.HCM",
+    location: "Khu dân cư Him Lam Tân Hưng, đường Nguyễn Thị Thập, TP.HCM",
     scope: "Kiến trúc & Nội thất",
     summary:
       "Mặt tiền được tổ chức theo nhịp đứng rõ ràng, kết hợp các lớp mái, vòm và ánh sáng để tạo chiều sâu cho một khu đất đô thị hẹp.",
@@ -134,7 +134,7 @@ const projects: Project[] = [
     src: "/images/BenhVienSIH.webp",
     name: "Bệnh viện Phụ sản Quốc tế Sài Gòn",
     type: "Y tế",
-    location: "Quận 1, TP. Hồ Chí Minh",
+    location: "63 Bùi Thị Xuân, Phường Bến Thành, TP. Hồ Chí Minh",
     scope: "Thiết kế & Thi công nội thất",
     summary:
       "Công trình y tế được đọc như một tổ hợp nhiều lớp, với khối đế tiếp cận rõ ràng và nhịp mặt đứng giúp giảm cảm giác nặng của quy mô lớn.",
@@ -174,7 +174,7 @@ const projects: Project[] = [
     src: "/images/TieuBieu3.webp",
     name: "Pullman Hải Phòng",
     type: "Khách sạn",
-    location: "Thành phố Hải Phòng",
+    location: "12 Trần Phú, Phường Gia Viên, Hải Phòng",
     scope: "Khu vực vận hành nội bộ",
     summary:
       "Hình ảnh giới thiệu cho thấy cách khối tháp, phần đế và cảnh quan được phân tầng để công trình quy mô lớn vẫn có điểm tiếp cận gần gũi.",
@@ -214,7 +214,7 @@ const projects: Project[] = [
     src: "/images/TieuBieu4.webp",
     name: "Trụ sở CPV Food",
     type: "Văn phòng · Công nghiệp",
-    location: "Bình Phước, Việt Nam",
+    location: "Lô B5-CN, KCN Becamex Bình Phước, P. Chơn Thành, TP. Đồng Nai",
     scope: "Thiết kế & Thi công nội thất",
     summary:
       "Trụ sở được trình bày bằng các lớp khối rõ ràng, ưu tiên nhận diện doanh nghiệp và một vùng tiếp cận rộng trong khuôn viên công nghiệp.",
@@ -254,7 +254,7 @@ const projects: Project[] = [
     src: "/images/singapo.webp",
     name: "Bệnh viện Đa khoa Singapore",
     type: "Y tế · Quốc tế",
-    location: "Singapore",
+    location: "Outram Road, Singapore 169608",
     scope: "Nội thất lâm sàng",
     summary:
       "Một dự án y tế quốc tế, nơi khả năng định hướng, tỷ lệ thân thiện và sự liên tục giữa các khu chức năng là trọng tâm trải nghiệm.",

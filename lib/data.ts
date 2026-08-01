@@ -101,7 +101,7 @@ export const projects: Project[] = [
   slug: "sih-hospital",
   name: "Bệnh viện Phụ sản Quốc tế Sài Gòn",
   client: "Bệnh viện Quốc tế Sài Gòn (Sản Nhi)",
-  location: "Quận 1, Thành phố Hồ Chí Minh",
+  location: "63 Bùi Thị Xuân, Phường Bến Thành, Thành phố Hồ Chí Minh",
   sector: ["healthcare"],
   image: "/images/sih-lobby.jpg",
    excerpt:
@@ -123,7 +123,7 @@ export const projects: Project[] = [
   {
     slug: "singapore-general-hospital",
     name: "Bệnh viện Đa khoa Singapore",
-    location: "Singapore",
+    location: "Singapore General Hospital, Outram Road, Singapore 169608",
     sector: ["healthcare", "international"],
     image: "/images/sgh-singapore.jpg",
     excerpt:
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     slug: "cpv-food-head-office",
     name: "Trụ sở CPV Food",
     client: "Tập đoàn C.P. Thái Lan",
-    location: "Bình Phước, Việt Nam",
+    location: "Lô B5-CN, KCN Becamex Bình Phước, Phường Chơn Thành, Thành phố Đồng Nai",
     sector: ["office", "industrial", "international"],
     image: "/images/qualgo-office.jpg",
     excerpt:
@@ -147,7 +147,7 @@ export const projects: Project[] = [
     slug: "qualgo-technologies-office",
     name: "Văn phòng Qualgo Technologies Việt Nam",
     client: "Qualgo Technologies",
-    location: "An Phú, Quận 2, Thành phố Hồ Chí Minh",
+    location: "Tầng 24, Tòa nhà Hallmark, 15 Trần Bạch Đằng, Phường An Khánh, Thành phố Hồ Chí Minh",
     sector: ["office"],
     image: "/images/QUALGO.webp",
     excerpt:
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     slug: "pullman-hai-phong",
     name: "Pullman Hải Phòng — Khu vực sau",
     client: "Pullman",
-    location: "Thành phố Hải Phòng",
+    location: "Pullman Hai Phong Grand Hotel, số 12 Trần Phú, Phường Gia Viên, Hải Phòng 180000, Việt Nam",
     sector: ["hospitality"],
     image: "/images/pullman-hai-phong.jpg",
     excerpt:
@@ -170,7 +170,7 @@ export const projects: Project[] = [
   {
     slug: "an-phu-gia-office",
     name: "Văn phòng An Phú Gia",
-    location: "Quận Bình Thạnh, Thành phố Hồ Chí Minh",
+    location: "Tòa nhà An Phú Gia, 178/11 Nguyễn Văn Thương, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh",
     sector: ["office"],
     image: "/images/ANPHUGIA.webp",
     excerpt:
@@ -182,7 +182,7 @@ export const projects: Project[] = [
     slug: "iris-partners-law-firm",
     name: "Văn phòng Luật Iris Partners",
     client: "Iris Partners",
-    location: "Quận 1, Thành phố Hồ Chí Minh",
+    location: "Unit A4-4.04, Tầng 5, Tòa A4, Vinhomes Golden River, 02 Tôn Đức Thắng, Phường Sài Gòn, Thành phố Hồ Chí Minh",
     sector: ["office"],
     image: "/images/OFFICEIRISPARTNERS.webp",
     excerpt:
@@ -207,13 +207,13 @@ export const projects: Project[] = [
     name: "Biệt thự Him Lam Tân Hưng",
     client: "Cộng đồng cư dân Him Lam",
     location:
-      "24 Đường Số 10, KĐTM Him Lam, Phường Tân Hưng, Quận 7, Ho Chi Minh City, Vietnam",
+      "Khu dân cư Him Lam Tân Hưng, đường Nguyễn Thị Thập, Phường Tân Hưng, Thành phố Hồ Chí Minh",
     sector: ["residential"],
     image: "/images/villatanhung1.webp",
     excerpt:
-      "Nội thất biệt thự tại 24 Đường Số 10, KĐTM Him Lam, Phường Tân Hưng, Quận 7.",
+      "Nội thất biệt thự tại Khu dân cư Him Lam Tân Hưng, đường Nguyễn Thị Thập, Thành phố Hồ Chí Minh.",
     detail:
-      "Biệt thự riêng tại 24 Đường Số 10, KĐTM Him Lam, Phường Tân Hưng, Quận 7 được thiết kế cho một gia đình cư dân — nội thất nhà ở được xây dựng xoay quanh cách sống thực tế của gia đình, thay vì một bố trí theo tiêu chuẩn trưng bày.",
+      "Biệt thự riêng tại Khu dân cư Him Lam Tân Hưng được thiết kế cho một gia đình cư dân — nội thất nhà ở được xây dựng xoay quanh cách sống thực tế của gia đình, thay vì một bố trí theo tiêu chuẩn trưng bày. Số căn không được công bố để bảo vệ quyền riêng tư của gia chủ.",
   gallery: [
     "/images/villatanhung.webp",
     "/images/villatanhung2.webp",
@@ -324,7 +324,7 @@ export const projects: Project[] = [
   {
     slug: "park-legend-apartment",
     name: "Căn hộ Park Legend",
-    location: "Quận Tân Bình, Thành phố Hồ Chí Minh",
+    location: "Park Legend, 251 Hoàng Văn Thụ, Phường Tân Sơn Hòa, Thành phố Hồ Chí Minh",
     sector: ["residential"],
     image: "/images/PARKLEGEND.webp",
     excerpt:
@@ -395,7 +395,7 @@ export const projects: Project[] = [
   {
     slug: "art-five-furniture-workshop",
     name: "Xưởng Nội thất ARTFIVE",
-    location: "Phường Long Bình, Thành phố Thủ Đức",
+    location: "313 Phước Thiện, Phường Long Bình, Thành phố Hồ Chí Minh",
     sector: ["industrial"],
     image: "/images/ARTFIVE1.webp",
     excerpt:
