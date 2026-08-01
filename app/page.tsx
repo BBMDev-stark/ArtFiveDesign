@@ -297,44 +297,66 @@ export default function HomePage() {
       </section>
 
       {/* INSIGHTS SECTION */}
-      <section className="section-spacing">
-        <div className="container-x">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+      <section className="home-insights-showcase">
+        <div className="home-insights-showcase__frame" aria-hidden="true" />
+        <div className="home-insights-showcase__inner">
+          <div className="home-insights-showcase__header">
             <Reveal>
-              <SectionEyebrow>Bài viết</SectionEyebrow>
-              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-charcoal tracking-tight leading-[1.1]">
-                Ghi chú từ studio
-              </h2>
+              <div className="home-insights-showcase__eyebrow">
+                <span aria-hidden="true" />
+                <i aria-hidden="true">◆</i>
+                <p>Bài viết</p>
+              </div>
+              <h2>Ghi chú từ studio</h2>
+              <div className="home-insights-showcase__ornament" aria-hidden="true">
+                <span />
+                <i>◆</i>
+                <i>◆</i>
+              </div>
+              <p className="home-insights-showcase__lead">
+                Những chia sẻ về quá trình làm nghề, tư duy thiết kế<br />
+                và những câu chuyện phía sau mỗi công trình.
+              </p>
             </Reveal>
-            <Reveal delay={0.1}>
-              <Link
-                href="/insights"
-                className="eyebrow text-bronze border-b border-bronze/30 pb-0.5 hover:border-bronze hover:pb-0 transition-all duration-300 tracking-widest3"
-              >
-                Tất cả bài viết
+
+            <Reveal delay={0.1} className="home-insights-showcase__cta-wrap">
+              <Link href="/insights" className="home-insights-showcase__cta">
+                <span>Tất cả bài viết</span>
+                <span aria-hidden="true">⟶</span>
               </Link>
             </Reveal>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 border-t border-line pt-12">
+
+          <div className="home-insights-showcase__posts">
             {[
               {
                 title: "Bài học từ quan hệ đối tác năm 2013 về bàn giao trọn gói",
                 tag: "Thực hành",
+                icon: "/images/insight-icon-practice-transparent.png",
               },
               {
                 title: "Thiết kế sự bình yên vào mặt bằng lâm sàng",
                 tag: "Y tế",
+                icon: "/images/insight-icon-healthcare-transparent.png",
               },
               {
                 title: "Tại sao chúng tôi tự sản xuất nội thất",
                 tag: "Sản xuất",
+                icon: "/images/insight-icon-production-transparent.png",
               },
             ].map((post, i) => (
               <Reveal key={post.title} delay={i * 0.1}>
-                <p className="eyebrow text-bronze/70 mb-5 tracking-widest3">{post.tag}</p>
-                <h3 className="font-serif text-xl lg:text-2xl text-charcoal leading-snug hover:text-bronze transition-colors duration-300 cursor-pointer">
-                  {post.title}
-                </h3>
+                <article className="home-insight-post">
+                  <div className="home-insight-post__marker">
+                    <span>0{i + 1}</span>
+                    <Image src={post.icon} alt="" width={58} height={58} />
+                  </div>
+                  <div className="home-insight-post__content">
+                    <p>{post.tag}</p>
+                    <h3>{post.title}</h3>
+                  </div>
+                  <Link href="/insights" aria-label={`Đọc bài: ${post.title}`}>⟶</Link>
+                </article>
               </Reveal>
             ))}
           </div>
