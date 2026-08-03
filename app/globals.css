@@ -39,13 +39,23 @@ body {
   line-height: 1.6;
 }
 
+/* Retain the metallic logo on dark hero imagery, but deepen it on the light sticky header. */
+.site-header-logo--light {
+  filter:
+    sepia(0.42)
+    saturate(1.42)
+    brightness(0.67)
+    contrast(1.32)
+    drop-shadow(0 1px 0.5px rgba(91, 60, 40, 0.16));
+}
+
 /* About story — layered portrait, editorial typography and architectural plate. */
 .about-story-showcase {
   position: relative;
   min-height: clamp(840px, 56.25vw, 1060px);
   overflow: hidden;
   background-color: #f5efe6;
-  background-image: url("/images/about-story-background-v2.png");
+  background-image: url("/images/about-story-background-v2.webp");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -300,8 +310,14 @@ body {
   }
 
   .about-story-showcase__portrait-wrap {
-    height: 125vw;
-    max-height: 560px;
+    height: 108vw;
+    min-height: 390px;
+    max-height: 475px;
+  }
+
+  .about-story-showcase__portrait {
+    transform: translateY(-2px) scale(1.2);
+    transform-origin: center top;
   }
 
   .about-story-showcase__copy-block p {
@@ -317,7 +333,7 @@ body {
   overflow: hidden;
   color: #f3eee7;
   background-color: #100e0c;
-  background-image: url("/images/about-philosophy-background-v2.png");
+  background-image: url("/images/about-philosophy-background-v2.webp");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -701,7 +717,7 @@ body {
   overflow: hidden;
   color: #27221e;
   background-color: #f5f0e9;
-  background-image: url("/images/about-experience-background-v2.png");
+  background-image: url("/images/about-experience-background-v2.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1126,7 +1142,7 @@ select:focus-visible,
   display: flex;
   align-items: center;
   background-color: #f4efe7;
-  background-image: url("/images/about-showcase-background.png");
+  background-image: url("/images/about-showcase-background.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1363,7 +1379,7 @@ select:focus-visible,
   display: flex;
   align-items: center;
   background-color: #eee7de;
-  background-image: url("/images/process-showcase-background.png");
+  background-image: url("/images/process-showcase-background.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1667,7 +1683,7 @@ select:focus-visible,
   min-height: 824px;
   overflow: hidden;
   background-color: #f3efe9;
-  background-image: url("/images/insights-showcase-background.png");
+  background-image: url("/images/insights-showcase-background.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2058,7 +2074,7 @@ html.custom-cursor button {
 
 .studio-location {
   background-color: #f5f2ed;
-  background-image: url("/images/studio-location-background.png");
+  background-image: url("/images/studio-location-background.webp");
   background-position: left top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2078,7 +2094,32 @@ html.custom-cursor button {
 }
 
 @media (max-width: 767px) {
+  .about-story-showcase {
+    background-image: url("/images/about-story-background-v2-mobile.webp");
+  }
+
+  .about-philosophy-showcase {
+    background-image: url("/images/about-philosophy-background-v2-mobile.webp");
+  }
+
+  .about-experience-showcase {
+    background-image: url("/images/about-experience-background-v2-mobile.webp");
+  }
+
+  .home-about-showcase {
+    background-image: url("/images/about-showcase-background-mobile.webp");
+  }
+
+  .home-process-showcase {
+    background-image: url("/images/process-showcase-background-mobile.webp");
+  }
+
+  .home-insights-showcase {
+    background-image: url("/images/insights-showcase-background-mobile.webp");
+  }
+
   .studio-location {
+    background-image: url("/images/studio-location-background-mobile.webp");
     background-position: 14% top;
     background-size: auto 100%;
   }

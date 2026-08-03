@@ -39,10 +39,29 @@ export default function Header() {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [open]);
+
+  const lightSurface = scrolled || open;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-smooth ${
-        scrolled || open
+        lightSurface
           ? "bg-ivory/95 border-b border-line shadow-soft"
           : "bg-transparent"
       }`}
@@ -60,8 +79,20 @@ export default function Header() {
               aria-hidden
               fill
               sizes="110px"
-              className="object-contain"
+              className={`object-contain transition-opacity duration-500 ease-smooth ${
+                lightSurface ? "opacity-0" : "opacity-100"
+              }`}
               priority
+            />
+            <Image
+              src="/images/brand/logo-full.png"
+              alt=""
+              aria-hidden
+              fill
+              sizes="110px"
+              className={`site-header-logo--light object-contain transition-opacity duration-500 ease-smooth ${
+                lightSurface ? "opacity-100" : "opacity-0"
+              }`}
             />
           </span>
         </Link>
@@ -88,18 +119,31 @@ export default function Header() {
         </Link>
 
         <button
-          className="lg:hidden flex flex-col gap-[6px] w-11 h-11 items-center justify-center -mr-1"
+          className={`lg:hidden flex flex-col gap-[6px] w-11 h-11 items-center justify-center -mr-1 rounded-full transition-colors duration-300 ${
+            lightSurface
+              ? "bg-charcoal/[0.04]"
+              : "bg-black/20 backdrop-blur-sm"
+          }`}
           aria-label={open ? "Đóng menu" : "Mở menu"}
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen((o) => !o)}
         >
           <span
-            className={`block w-6 h-[1.5px] bg-charcoal transition-all duration-300 ${
+            className={`block w-6 h-[1.5px] transition-all duration-300 ${
+              lightSurface
+                ? "bg-charcoal shadow-none"
+                : "bg-champagne shadow-[0_0_8px_rgba(201,184,150,0.4)]"
+            } ${
               open ? "rotate-45 translate-y-[5px]" : ""
             }`}
           />
           <span
-            className={`block w-6 h-[1.5px] bg-charcoal transition-all duration-300 ${
+            className={`block w-6 h-[1.5px] transition-all duration-300 ${
+              lightSurface
+                ? "bg-charcoal shadow-none"
+                : "bg-champagne shadow-[0_0_8px_rgba(201,184,150,0.4)]"
+            } ${
               open ? "-rotate-45 -translate-y-[5px]" : ""
             }`}
           />
@@ -107,16 +151,17 @@ export default function Header() {
       </div>
 
       <nav
-        className={`grid border-b border-line bg-ivory transition-[grid-template-rows,opacity] duration-300 ease-smooth lg:hidden ${
+        id="mobile-navigation"
+        className={`grid border-b border-line bg-ivory/98 backdrop-blur-xl transition-[grid-template-rows,opacity,min-height] duration-300 ease-smooth lg:hidden ${
           open
-            ? "grid-rows-[1fr] opacity-100"
+            ? "grid-rows-[1fr] min-h-[calc(100dvh-4.5rem)] opacity-100"
             : "pointer-events-none grid-rows-[0fr] border-transparent opacity-0"
         }`}
         aria-label="Di động"
         aria-hidden={!open}
       >
-        <div className="overflow-hidden">
-          <ul className="container-x flex flex-col gap-6 py-8">
+        <div className={open ? "overflow-y-auto" : "overflow-hidden"}>
+          <ul className="container-x flex min-h-full flex-col gap-2 py-6">
             {nav.map((item, i) => (
               <li
                 key={item.href}
@@ -127,7 +172,10 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className="font-serif text-2xl text-charcoal transition-colors hover:text-bronze"
+                  aria-current={pathname === item.href ? "page" : undefined}
+                  className={`flex min-h-12 items-center font-serif text-2xl transition-colors hover:text-bronze ${
+                    pathname === item.href ? "text-bronze" : "text-charcoal"
+                  }`}
                   tabIndex={open ? undefined : -1}
                 >
                   {item.label}
@@ -144,7 +192,7 @@ export default function Header() {
             >
               <Link
                 href="/contact"
-                className="eyebrow text-bronze tracking-widest3"
+                className="eyebrow flex min-h-12 items-center border-t border-line pt-4 text-bronze tracking-widest3"
                 tabIndex={open ? undefined : -1}
               >
                 Bắt đầu Dự án →
