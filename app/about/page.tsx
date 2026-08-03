@@ -4,7 +4,8 @@ import Reveal from "@/components/Reveal";
 import SectionEyebrow from "@/components/SectionEyebrow";
 import LocationLedger from "@/components/LocationLedger";
 import ZoomableImage from "@/components/ZoomableImage";
-import { company, philosophy, team, stats } from "@/lib/data";
+import LeadershipSection from "@/components/LeadershipSection";
+import { company, stats } from "@/lib/data";
 
 export const metadata = {
   title: "Giới thiệu",
@@ -32,7 +33,7 @@ export const metadata = {
      (studio, văn phòng, hoặc công trình tiêu biểu).
 */
 
-const historyImage = "/images/leader/NguyenDuongHuy.svg"; // TODO: thay bằng ảnh thật
+const founderPortrait = "/images/leader/NguyenDuongHuy-transparent-v2.png";
 
 const licenses = [
   {
@@ -61,11 +62,8 @@ const licenses = [
   },
 ];
 
-const experience = {
-  headline:
-    "Nguồn cảm hứng bất tận cho chúng tôi sáng tạo và cống hiến không ai khác chính là Bạn — khách hàng của Art Five Design Corporation.",
-  body: "Chúng tôi cung cấp dịch vụ thiết kế và thi công kiến trúc, nội thất cho đa dạng loại hình công trình: nhà ở, căn hộ dân dụng, thương mại, bán lẻ, văn phòng và công trình y tế, theo phong cách sang trọng — với mong muốn mang đến những công trình đẳng cấp, được thiết kế phù hợp với nhu cầu riêng của từng khách hàng.",
-};
+const experienceBody =
+  "Chúng tôi cung cấp dịch vụ thiết kế và thi công kiến trúc, nội thất cho đa dạng loại hình công trình: nhà ở, căn hộ dân dụng, thương mại, bán lẻ, văn phòng và công trình y tế, theo phong cách sang trọng — với mong muốn mang đến những công trình đẳng cấp, được thiết kế phù hợp với nhu cầu riêng của từng khách hàng.";
 
 export default function AboutPage() {
   return (
@@ -91,117 +89,200 @@ export default function AboutPage() {
       <LocationLedger />
 
       {/* HISTORY */}
-      <section className="section-spacing">
-        <div className="container-x">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-5">
-              <Reveal>
-                <SectionEyebrow>Câu chuyện của chúng tôi</SectionEyebrow>
-                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight tracking-tight mb-10">
-                  Được sáng vào lập năm {company.founded}
-                  <br />
-                  bởi <span className="italic text-bronze">{company.founder}</span>
-                </h2>
-              </Reveal>
-              <Reveal delay={0.15}>
-                <div className="relative aspect-[4/5] w-full overflow-hidden">
-                  <ZoomableImage
-                    src={historyImage}
-                    alt={`Studio ${company.founder ?? "ARTFIVE DESIGN"}`}
-                    sizes="(min-width: 1024px) 35vw, 90vw"
-                  />
-                  <div className="absolute inset-0 border border-ivory/20 pointer-events-none" />
+      <section className="about-story-showcase">
+        <div className="about-story-showcase__inner">
+          <div className="about-story-showcase__left">
+            <Reveal>
+              <div className="about-story-showcase__kicker">
+                <span className="about-story-showcase__capital" aria-hidden="true"><i /><i /><i /></span>
+                <p>Câu chuyện của chúng tôi</p>
+              </div>
+              <h2>
+                Được sáng lập<br />
+                năm {company.founded}<br />
+                bởi<br />
+                <em>{company.founder}</em>
+              </h2>
+            </Reveal>
+
+            <Reveal delay={0.15} className="about-story-showcase__portrait-wrap">
+              <Image
+                src={founderPortrait}
+                alt={`Ông ${company.founder}, người sáng lập ARTFIVE DESIGN`}
+                fill
+                priority
+                sizes="(min-width: 1024px) 390px, 72vw"
+                className="about-story-showcase__portrait"
+              />
+            </Reveal>
+          </div>
+
+          <div className="about-story-showcase__axis" aria-hidden="true">
+            <span>✣</span>
+          </div>
+
+          <div className="about-story-showcase__copy">
+            {[
+              <>
+                Được sáng lập năm 2009 bởi Nguyễn Dương Huy,<br />
+                ARTFIVE DESIGN khởi nguồn từ niềm đam mê kiến trúc<br />
+                và nội thất cùng khát vọng kiến tạo những không gian<br />
+                sống tinh tế, bền vững và đầy cảm hứng.
+              </>,
+              <>
+                Trải qua hơn một thập kỷ phát triển, chúng tôi không<br />
+                ngừng hoàn thiện tư duy thiết kế và quy trình thi công,<br />
+                để mỗi công trình đều mang dấu ấn riêng, phản ánh<br />
+                gu thẩm mỹ và phong cách sống của từng khách hàng.
+              </>,
+              <>
+                Hôm nay, ARTFIVE DESIGN tự hào là đơn vị thiết kế và<br />
+                thi công kiến trúc – nội thất trọn gói, đồng hành cùng<br />
+                khách hàng kiến tạo những không gian đẳng cấp, nơi<br />
+                giá trị thẩm mỹ và công năng hòa quyện vẹn toàn.
+              </>,
+            ].map((paragraph, index) => (
+              <Reveal key={index} delay={0.1 + index * 0.1}>
+                <div className="about-story-showcase__copy-block">
+                  <div className="about-story-showcase__rule" aria-hidden="true"><i /></div>
+                  <p>{paragraph}</p>
                 </div>
               </Reveal>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-7 space-y-8 lg:pt-[7.5rem]">
-              <Reveal delay={0.1}>
-                <p className="text-lg text-charcoal/75 leading-relaxed">{philosophy.history}</p>
-              </Reveal>
-              <Reveal delay={0.2}>
-                <p className="text-lg text-charcoal/65 leading-relaxed">{philosophy.product}</p>
-              </Reveal>
-              <Reveal delay={0.3}>
-                <p className="text-lg text-charcoal/55 leading-relaxed">{philosophy.turnkey}</p>
-              </Reveal>
-            </div>
+            ))}
+            <div className="about-story-showcase__rule about-story-showcase__rule--final" aria-hidden="true"><i /></div>
           </div>
         </div>
       </section>
 
       {/* PHILOSOPHY */}
-      <section className="bg-charcoal text-ivory section-spacing">
-  <div className="container-x">
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-      <div className="lg:col-span-5">
-        <Reveal>
-          <SectionEyebrow dark>Triết lý</SectionEyebrow>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight">
-            {philosophy.globalLocal}
-          </h2>
-        </Reveal>
+      <section className="about-philosophy-showcase">
+        <span className="about-philosophy-showcase__vertical" aria-hidden="true">
+          Artfive Design Corporation
+        </span>
+        <span className="about-philosophy-showcase__counter" aria-label="Phần 1 trên 4">
+          <i /> <strong>01</strong> / 04
+        </span>
 
-        {/* ẢNH MỚI — sát dưới tiêu đề */}
-        <Reveal delay={0.15}>
-          <div className="relative aspect-[16/9] w-full mt-8 overflow-hidden">
-            <Image
-              src="/images/BenhVienSIH2.webp"
-              alt="Tầm nhìn toàn cầu của ARTFIVE DESIGN"
-              fill
-              sizes="(min-width: 1024px) 35vw, 90vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 border border-ivory/20 pointer-events-none" />
+        <div className="about-philosophy-showcase__inner">
+          <div className="about-philosophy-showcase__visual">
+            <Reveal>
+              <div className="about-philosophy-showcase__eyebrow"><i /> Triết lý</div>
+            </Reveal>
+
+            <Reveal delay={0.15} className="about-philosophy-showcase__composite-wrap">
+              <Image
+                src="/images/philosophy-visual-composite-transparent.png"
+                alt="Tầm nhìn toàn cầu, sứ mệnh địa phương — công trình Bệnh viện Phụ sản Quốc tế Sài Gòn"
+                fill
+                sizes="(min-width: 1280px) 930px, (min-width: 900px) 62vw, 94vw"
+                className="about-philosophy-showcase__composite"
+                priority
+              />
+            </Reveal>
+
+            <Reveal delay={0.25} className="about-philosophy-showcase__action-wrap">
+              <Link href="/careers" className="about-philosophy-showcase__action">
+                <span>Khám phá văn hóa doanh nghiệp</span>
+                <span aria-hidden="true">⟶</span>
+              </Link>
+            </Reveal>
           </div>
-        </Reveal>
-      </div>
 
-      <div className="lg:col-span-6 lg:col-start-7">
-        <Reveal delay={0.1}>
-          <p className="font-serif text-xl md:text-2xl lg:text-3xl leading-relaxed text-ivory/85">
-            {philosophy.clientExperience}
-          </p>
-        </Reveal>
-      </div>
-    </div>
-  </div>
-</section>
-
-      {/* EXPERIENCE — nội dung mới, lấy khách hàng làm trung tâm */}
-      <section className="section-spacing border-t border-line">
-  <div className="container-x">
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-      <div className="lg:col-span-5">
-        <Reveal>
-          <SectionEyebrow>Kinh nghiệm của chúng tôi</SectionEyebrow>
-          <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-charcoal leading-snug tracking-tight text-balance">
-            {experience.headline}
-          </p>
-        </Reveal>
-      </div>
-
-      <div className="lg:col-span-6 lg:col-start-7 lg:pt-2">
-        <Reveal delay={0.1}>
-          <p className="text-lg text-charcoal/65 leading-relaxed">{experience.body}</p>
-        </Reveal>
-
-        {/* ẢNH MỚI — sát dưới đoạn văn, cùng tỷ lệ với ảnh trên */}
-        <Reveal delay={0.2}>
-          <div className="relative aspect-[16/9] w-full mt-8 overflow-hidden">
-            <Image
-              src="/images/OFFICEIRISPARTNERS.webp"
-              alt="Công trình tiêu biểu của ARTFIVE DESIGN"
-              fill
-              sizes="(min-width: 1024px) 45vw, 90vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 border border-charcoal/10 pointer-events-none" />
+          <div className="about-philosophy-showcase__copy">
+            <Reveal delay={0.1}>
+              <p className="about-philosophy-showcase__lead">
+                Chúng tôi hoàn toàn tập trung vào trải<br />
+                nghiệm khách hàng, hiện tại và tương lai.
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p>
+                Chúng tôi luôn lắng nghe trước khi thiết kế. Đối với chúng tôi,<br />
+                tiếng nói của khách hàng quan trọng nhất, không phải cái tôi<br />
+                của chúng tôi. Thiết kế tốt nhất sinh ra từ việc kết hợp tầm<br />
+                nhìn của nhà đầu tư với chuyên môn của ARTFIVE DESIGN.<br />
+                Hợp tác là nguyên tắc nền tảng trong quy trình thiết kế<br />
+                của chúng tôi.
+              </p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <p>
+                Chúng tôi không chỉ tạo nên những công trình đẹp, mà còn<br />
+                kiến tạo không gian sống mang giá trị bền vững – nơi thẩm mỹ,<br />
+                công năng và cảm xúc được hòa quyện, phản ánh phong cách<br />
+                sống và dấu ấn riêng của từng khách hàng.
+              </p>
+            </Reveal>
+            <div className="about-philosophy-showcase__rule" aria-hidden="true"><i /></div>
           </div>
-        </Reveal>
-      </div>
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
+
+      {/* EXPERIENCE */}
+      <section className="about-experience-showcase">
+        <aside className="about-experience-showcase__rail" aria-label="Thông tin thương hiệu">
+          <Image
+            src="/images/brand/logo-full.png"
+            alt="Art Five Design Corporation"
+            width={126}
+            height={63}
+            className="about-experience-showcase__logo"
+          />
+          <span className="about-experience-showcase__rail-line" aria-hidden="true" />
+          <span className="about-experience-showcase__rail-copy">
+            Architecture · Interior · Construction
+          </span>
+          <span className="about-experience-showcase__since">Since 2009</span>
+        </aside>
+
+        <div className="about-experience-showcase__inner">
+          <div className="about-experience-showcase__headline">
+            <Reveal>
+              <h2>
+                Nguồn cảm hứng<br />
+                bất tận cho chúng tôi<br />
+                sáng tạo và cống hiến<br />
+                không ai khác chính là<br />
+                <em>Bạn — khách hàng</em><br />
+                của Art Five Design<br />
+                Corporation.
+              </h2>
+              <Link href="#team" className="about-experience-showcase__link">
+                <span>Về chúng tôi</span>
+                <span aria-hidden="true">⟶</span>
+              </Link>
+            </Reveal>
+          </div>
+
+          <div className="about-experience-showcase__content">
+            <Reveal delay={0.1}>
+              <div className="about-experience-showcase__ornament" aria-hidden="true">
+                <i /><b>✦</b><i />
+              </div>
+              <p>{experienceBody}</p>
+            </Reveal>
+
+            <Reveal delay={0.2} className="about-experience-showcase__image-wrap">
+              <Image
+                src="/images/OFFICEIRISPARTNERS.webp"
+                alt="Không gian văn phòng do ARTFIVE DESIGN thực hiện"
+                fill
+                sizes="(min-width: 1280px) 665px, (min-width: 768px) 56vw, 92vw"
+                className="about-experience-showcase__image"
+              />
+            </Reveal>
+          </div>
+
+          <Image
+            src="/images/brand/art-five-signature-reference.png"
+            alt=""
+            width={192}
+            height={179}
+            className="about-experience-showcase__signature"
+            aria-hidden="true"
+          />
+        </div>
+      </section>
 
       {/* STATS */}
       <section className="section-spacing border-t border-line">
@@ -219,47 +300,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TEAM — mỗi lãnh đạo có ảnh chân dung, click để phóng to */}
-      <section className="section-spacing bg-paper">
-        <div className="container-x">
-          <Reveal>
-            <SectionEyebrow>Lãnh đạo</SectionEyebrow>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-charcoal mb-16 max-w-xl leading-[1.1] tracking-tight">
-              Đội ngũ đứng sau mọi dự án
-            </h2>
-          </Reveal>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-14">
-            {team.map((member, i) => (
-              <Reveal key={member.name} delay={(i % 4) * 0.08}>
-                <article>
-                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-charcoal/5 mb-6">
-                    <ZoomableImage
-                      src={member.image}
-                      alt={member.name}
-                      sizes="(min-width: 1024px) 22vw, 45vw"
-                      imageClassName="grayscale contrast-110 transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-[1.03]"
-                    >
-                      <div className="absolute inset-3 border border-ivory/30 pointer-events-none" />
-                      <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <p className="text-ivory font-serif text-lg text-left">{member.name}</p>
-                      </div>
-                    </ZoomableImage>
-                  </div>
-
-                  <div className="border-t-2 border-bronze/40 pt-6">
-                    <h3 className="font-serif text-2xl lg:text-3xl text-charcoal mb-2 tracking-tight">
-                      {member.name}
-                    </h3>
-                    <p className="eyebrow text-bronze/70 mb-6 tracking-widest3">{member.role}</p>
-                    <p className="text-sm text-charcoal/60 leading-relaxed max-w-lg">{member.bio}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <LeadershipSection />
 
       {/* LICENSES — 2 văn bản pháp lý thật, click để xem bản đầy đủ */}
       <section className="section-spacing" id="giay-phep">
