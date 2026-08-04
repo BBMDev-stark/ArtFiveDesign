@@ -3,11 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-} from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const C = {
   bg: "#0B0B0B",
@@ -51,7 +47,7 @@ const projects: Project[] = [
   {
     id: 0,
     slug: "himlam-tan-hung-villa",
-    src: "/images/TieuBieu2.webp",
+    src: "/images/himlamtanhung.svg",
     name: "Biệt thự Him Lam Tân Hưng",
     type: "Nhà ở",
     location: "Khu dân cư Him Lam Tân Hưng, đường Nguyễn Thị Thập, TP.HCM",
@@ -300,7 +296,8 @@ export default function HeroArchitectural() {
   const reduceMotion = useReducedMotion();
   const active = projects[activeIndex];
   const activeAnnotation =
-    active.annotations.find((annotation) => annotation.id === activeNote) ?? null;
+    active.annotations.find((annotation) => annotation.id === activeNote) ??
+    null;
 
   useEffect(() => {
     setActiveNote(null);
@@ -370,9 +367,7 @@ export default function HeroArchitectural() {
                 onClick={() => selectProject(index)}
                 className="group flex shrink-0 items-center gap-3 border px-3 py-3 text-left min-[1180px]:w-full min-[1180px]:border-0 min-[1180px]:px-0"
                 style={{
-                  borderColor: selected
-                    ? "rgba(200,176,138,0.45)"
-                    : C.divider,
+                  borderColor: selected ? "rgba(200,176,138,0.45)" : C.divider,
                   backgroundColor: selected
                     ? "rgba(200,176,138,0.06)"
                     : "transparent",
@@ -490,7 +485,10 @@ export default function HeroArchitectural() {
                 <div>
                   <dt
                     className="text-[8px] uppercase"
-                    style={{ color: "rgba(200,176,138,0.65)", letterSpacing: "0.22em" }}
+                    style={{
+                      color: "rgba(200,176,138,0.65)",
+                      letterSpacing: "0.22em",
+                    }}
                   >
                     Địa điểm
                   </dt>
@@ -501,7 +499,10 @@ export default function HeroArchitectural() {
                 <div>
                   <dt
                     className="text-[8px] uppercase"
-                    style={{ color: "rgba(200,176,138,0.65)", letterSpacing: "0.22em" }}
+                    style={{
+                      color: "rgba(200,176,138,0.65)",
+                      letterSpacing: "0.22em",
+                    }}
                   >
                     Phạm vi
                   </dt>
@@ -543,10 +544,12 @@ export default function HeroArchitectural() {
               role="group"
               aria-label="Chế độ xem công trình"
             >
-              {([
-                ["atmosphere", "Không gian"],
-                ["solutions", "Giải pháp"],
-              ] as const).map(([mode, label]) => {
+              {(
+                [
+                  ["atmosphere", "Không gian"],
+                  ["solutions", "Giải pháp"],
+                ] as const
+              ).map(([mode, label]) => {
                 const selected = viewMode === mode;
                 return (
                   <button
@@ -578,7 +581,10 @@ export default function HeroArchitectural() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: reduceMotion ? 0.01 : 0.58, ease: EASE }}
+                transition={{
+                  duration: reduceMotion ? 0.01 : 0.58,
+                  ease: EASE,
+                }}
                 className="absolute inset-0"
               >
                 <motion.div
@@ -589,7 +595,10 @@ export default function HeroArchitectural() {
                         ? "saturate(0.72) contrast(1.07) brightness(0.82)"
                         : "saturate(0.94) contrast(1.01) brightness(0.98)",
                   }}
-                  transition={{ duration: reduceMotion ? 0.01 : 0.65, ease: EASE }}
+                  transition={{
+                    duration: reduceMotion ? 0.01 : 0.65,
+                    ease: EASE,
+                  }}
                   style={{
                     maskImage:
                       "radial-gradient(ellipse 82% 80% at 50% 49%, black 76%, transparent 100%)",
@@ -647,7 +656,11 @@ export default function HeroArchitectural() {
                           className="absolute bottom-[4%] top-[4%] w-px"
                           initial={{ left: "16%", opacity: 0 }}
                           animate={{ left: "86%", opacity: [0, 0.8, 0] }}
-                          transition={{ duration: 1.25, ease: EASE, delay: 0.1 }}
+                          transition={{
+                            duration: 1.25,
+                            ease: EASE,
+                            delay: 0.1,
+                          }}
                           style={{
                             background:
                               "linear-gradient(to bottom, transparent, rgba(200,176,138,0.65), transparent)",
@@ -706,7 +719,10 @@ export default function HeroArchitectural() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: reduceMotion ? 0.01 : 0.32, ease: EASE }}
+                      transition={{
+                        duration: reduceMotion ? 0.01 : 0.32,
+                        ease: EASE,
+                      }}
                       aria-hidden
                     >
                       <span
@@ -747,8 +763,7 @@ export default function HeroArchitectural() {
                             style={{
                               left: `${annotation.x}%`,
                               top: `${annotation.y}%`,
-                              opacity:
-                                activeNote && !isOpen ? 0.38 : 1,
+                              opacity: activeNote && !isOpen ? 0.38 : 1,
                             }}
                             initial={{ opacity: 0, scale: 0.82 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -793,7 +808,9 @@ export default function HeroArchitectural() {
                               </span>
                               <span
                                 className="h-px w-5"
-                                style={{ backgroundColor: "rgba(200,176,138,0.66)" }}
+                                style={{
+                                  backgroundColor: "rgba(200,176,138,0.66)",
+                                }}
                                 aria-hidden
                               />
                               <span
@@ -827,7 +844,10 @@ export default function HeroArchitectural() {
                       initial={{ opacity: 0, x: 14 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 10 }}
-                      transition={{ duration: reduceMotion ? 0.01 : 0.3, ease: EASE }}
+                      transition={{
+                        duration: reduceMotion ? 0.01 : 0.3,
+                        ease: EASE,
+                      }}
                       aria-live="polite"
                     >
                       <div
@@ -845,7 +865,10 @@ export default function HeroArchitectural() {
                         />
                         <p
                           className="text-[7.5px] uppercase"
-                          style={{ color: C.champagne, letterSpacing: "0.24em" }}
+                          style={{
+                            color: C.champagne,
+                            letterSpacing: "0.24em",
+                          }}
                         >
                           Chi tiết thiết kế
                         </p>
@@ -877,51 +900,53 @@ export default function HeroArchitectural() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 6 }}
               >
-            {active.annotations.map((annotation) => {
-              const isOpen = activeNote === annotation.id;
-              return (
-                <button
-                  key={annotation.id}
-                  type="button"
-                  onClick={() => setActiveNote(isOpen ? null : annotation.id)}
-                  className="border p-4 text-left"
-                  style={{
-                    borderColor: isOpen
-                      ? "rgba(200,176,138,0.5)"
-                      : C.divider,
-                    backgroundColor: isOpen
-                      ? "rgba(200,176,138,0.07)"
-                      : "rgba(255,255,255,0.015)",
-                  }}
-                  aria-expanded={isOpen}
-                >
-                  <span
-                    className="inline-flex h-2 w-2 rotate-45 border"
-                    style={{ borderColor: C.champagne }}
-                    aria-hidden
-                  />
-                  <span
-                    className="ml-3 text-[10px] uppercase"
-                    style={{ color: C.text, letterSpacing: "0.08em" }}
-                  >
-                    {annotation.title}
-                  </span>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.span
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="mt-3 block overflow-hidden text-xs leading-relaxed"
-                        style={{ color: C.muted }}
+                {active.annotations.map((annotation) => {
+                  const isOpen = activeNote === annotation.id;
+                  return (
+                    <button
+                      key={annotation.id}
+                      type="button"
+                      onClick={() =>
+                        setActiveNote(isOpen ? null : annotation.id)
+                      }
+                      className="border p-4 text-left"
+                      style={{
+                        borderColor: isOpen
+                          ? "rgba(200,176,138,0.5)"
+                          : C.divider,
+                        backgroundColor: isOpen
+                          ? "rgba(200,176,138,0.07)"
+                          : "rgba(255,255,255,0.015)",
+                      }}
+                      aria-expanded={isOpen}
+                    >
+                      <span
+                        className="inline-flex h-2 w-2 rotate-45 border"
+                        style={{ borderColor: C.champagne }}
+                        aria-hidden
+                      />
+                      <span
+                        className="ml-3 text-[10px] uppercase"
+                        style={{ color: C.text, letterSpacing: "0.08em" }}
                       >
-                        {annotation.description}
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
-                </button>
-              );
-            })}
+                        {annotation.title}
+                      </span>
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.span
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="mt-3 block overflow-hidden text-xs leading-relaxed"
+                            style={{ color: C.muted }}
+                          >
+                            {annotation.description}
+                          </motion.span>
+                        )}
+                      </AnimatePresence>
+                    </button>
+                  );
+                })}
               </motion.div>
             )}
           </AnimatePresence>
