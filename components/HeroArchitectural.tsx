@@ -60,8 +60,8 @@ const projects: Project[] = [
         title: "Các lớp mái dốc",
         description:
           "Ba lớp mái tạo đường chân trời có thứ bậc, giúp khối nhà cao và hẹp có tỷ lệ cân bằng hơn.",
-        x: 61,
-        y: 15,
+        x: 64,
+        y: 20,
         side: "left",
       },
       {
