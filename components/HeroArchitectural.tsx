@@ -60,70 +60,70 @@ const projects: Project[] = [
         title: "Các lớp mái dốc",
         description:
           "Ba lớp mái tạo đường chân trời có thứ bậc, giúp khối nhà cao và hẹp có tỷ lệ cân bằng hơn.",
-        x: 46,
-        y: 18,
-        side: "right",
+        x: 62,
+        y: 27,
+        side: "left",
       },
       {
         id: "02",
         title: "Nhịp vòm mặt tiền",
         description:
           "Hệ vòm lặp lại theo phương đứng liên kết các tầng và tạo những lớp bóng đổ rõ trên mặt đứng.",
-        x: 49,
-        y: 31,
-        side: "right",
+        x: 60,
+        y: 35,
+        side: "left",
       },
       {
         id: "03",
         title: "Ánh sáng chân công trình",
         description:
           "Các điểm sáng thấp nhấn lối vào, bồn cây và mép sân thay vì chiếu phẳng toàn bộ mặt tiền.",
-        x: 60,
-        y: 87,
+        x: 64,
+        y: 71,
         side: "left",
       },
     ],
   },
-  {
-    id: 1,
-    slug: "concept-ho2-cp-group",
-    src: "/images/TieuBieu1.webp",
-    name: "Concept H.O. 2",
-    type: "Văn phòng",
-    location: "Biên Hòa, Việt Nam",
-    scope: "Thiết kế ý tưởng",
-    summary:
-      "Một nghiên cứu trụ sở doanh nghiệp, trong đó các lớp mặt đứng được dùng để điều tiết tỷ lệ khối và tạo nhận diện từ xa.",
-    annotations: [
-      {
-        id: "01",
-        title: "Khối chính",
-        description:
-          "Khối tích trung tâm được giữ liền mạch để hình ảnh trụ sở dễ nhận biết trong tổng thể khuôn viên.",
-        x: 51,
-        y: 33,
-        side: "right",
-      },
-      {
-        id: "02",
-        title: "Lớp mặt đứng",
-        description:
-          "Các đường ngang và mảng đặc–rỗng chia nhỏ tỷ lệ công trình, đồng thời tạo chiều sâu thị giác.",
-        x: 61,
-        y: 50,
-        side: "right",
-      },
-      {
-        id: "03",
-        title: "Khoảng tiếp cận",
-        description:
-          "Phần đế mở rộng tạo vùng chuyển tiếp rõ ràng giữa giao thông phía trước và lối vào chính.",
-        x: 46,
-        y: 72,
-        side: "left",
-      },
-    ],
-  },
+  // {
+  //   id: 1,
+  //   slug: "concept-ho2-cp-group",
+  //   src: "/images/TieuBieu1.webp",
+  //   name: "Concept H.O. 2",
+  //   type: "Văn phòng",
+  //   location: "Biên Hòa, Việt Nam",
+  //   scope: "Thiết kế ý tưởng",
+  //   summary:
+  //     "Một nghiên cứu trụ sở doanh nghiệp, trong đó các lớp mặt đứng được dùng để điều tiết tỷ lệ khối và tạo nhận diện từ xa.",
+  //   annotations: [
+  //     {
+  //       id: "01",
+  //       title: "Khối chính",
+  //       description:
+  //         "Khối tích trung tâm được giữ liền mạch để hình ảnh trụ sở dễ nhận biết trong tổng thể khuôn viên.",
+  //       x: 51,
+  //       y: 33,
+  //       side: "right",
+  //     },
+  //     {
+  //       id: "02",
+  //       title: "Lớp mặt đứng",
+  //       description:
+  //         "Các đường ngang và mảng đặc–rỗng chia nhỏ tỷ lệ công trình, đồng thời tạo chiều sâu thị giác.",
+  //       x: 61,
+  //       y: 50,
+  //       side: "right",
+  //     },
+  //     {
+  //       id: "03",
+  //       title: "Khoảng tiếp cận",
+  //       description:
+  //         "Phần đế mở rộng tạo vùng chuyển tiếp rõ ràng giữa giao thông phía trước và lối vào chính.",
+  //       x: 46,
+  //       y: 72,
+  //       side: "left",
+  //     },
+  //   ],
+  // },
   {
     id: 2,
     slug: "sih-hospital",
@@ -355,7 +355,7 @@ export default function HeroArchitectural() {
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1920px] flex-col px-5 pb-12 pt-28 sm:px-8 min-[1180px]:block min-[1180px]:px-0 min-[1180px]:pb-20 min-[1180px]:pt-0">
         <nav
-          className="order-3 mt-7 flex gap-2 overflow-x-auto pb-2 min-[1180px]:absolute min-[1180px]:left-10 min-[1180px]:top-1/2 min-[1180px]:z-30 min-[1180px]:mt-0 min-[1180px]:w-[180px] min-[1180px]:-translate-y-1/2 min-[1180px]:flex-col min-[1180px]:gap-1 min-[1180px]:overflow-visible min-[1180px]:pb-0 xl:left-12"
+          className="order-3 mt-7 flex gap-2 overflow-x-auto pb-2 min-[1180px]:absolute min-[1180px]:left-8 min-[1180px]:top-1/2 min-[1180px]:z-30 min-[1180px]:mt-0 min-[1180px]:w-[150px] min-[1180px]:-translate-y-1/2 min-[1180px]:flex-col min-[1180px]:gap-1 min-[1180px]:overflow-visible min-[1180px]:pb-0 min-[1600px]:left-12 min-[1600px]:w-[180px]"
           aria-label="Chọn dự án"
         >
           {projects.map((project, index) => {
@@ -441,7 +441,7 @@ export default function HeroArchitectural() {
           })}
         </nav>
 
-        <div className="order-1 min-[1180px]:absolute min-[1180px]:left-[15%] min-[1180px]:top-1/2 min-[1180px]:z-20 min-[1180px]:w-[29%] min-[1180px]:max-w-[440px] min-[1180px]:-translate-y-1/2 xl:left-[17%]">
+        <div className="order-1 min-[1180px]:absolute min-[1180px]:left-[16%] min-[1180px]:top-1/2 min-[1180px]:z-20 min-[1180px]:w-[27%] min-[1180px]:max-w-[440px] min-[1180px]:-translate-y-1/2 min-[1600px]:left-[17%] min-[1600px]:w-[29%]">
           <p
             className="mb-5 text-[9px] uppercase"
             style={{ color: C.champagne, letterSpacing: "0.34em" }}
@@ -533,7 +533,7 @@ export default function HeroArchitectural() {
           </AnimatePresence>
         </div>
 
-        <div className="order-2 mt-10 min-[1180px]:absolute min-[1180px]:bottom-[7%] min-[1180px]:right-[2%] min-[1180px]:top-[13%] min-[1180px]:mt-0 min-[1180px]:w-[59%] xl:right-[3%] xl:w-[58%]">
+        <div className="order-2 mt-10 min-[1180px]:absolute min-[1180px]:bottom-[7%] min-[1180px]:right-[2%] min-[1180px]:top-[13%] min-[1180px]:mt-0 min-[1180px]:w-[55%] min-[1600px]:right-[3%] min-[1600px]:w-[58%]">
           <div className="relative mx-auto aspect-[4/3] w-full max-w-[1080px] min-[1180px]:h-full min-[1180px]:w-full">
             <div
               className="absolute right-0 top-0 z-50 flex items-center border p-1 backdrop-blur-md sm:right-[4%] sm:top-[3%]"
