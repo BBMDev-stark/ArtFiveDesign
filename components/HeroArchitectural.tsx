@@ -60,8 +60,8 @@ const projects: Project[] = [
         title: "Các lớp mái dốc",
         description:
           "Ba lớp mái tạo đường chân trời có thứ bậc, giúp khối nhà cao và hẹp có tỷ lệ cân bằng hơn.",
-        x: 62,
-        y: 27,
+        x: 61,
+        y: 15,
         side: "left",
       },
       {
@@ -69,8 +69,8 @@ const projects: Project[] = [
         title: "Nhịp vòm mặt tiền",
         description:
           "Hệ vòm lặp lại theo phương đứng liên kết các tầng và tạo những lớp bóng đổ rõ trên mặt đứng.",
-        x: 60,
-        y: 35,
+        x: 62,
+        y: 30,
         side: "left",
       },
       {
@@ -78,8 +78,8 @@ const projects: Project[] = [
         title: "Ánh sáng chân công trình",
         description:
           "Các điểm sáng thấp nhấn lối vào, bồn cây và mép sân thay vì chiếu phẳng toàn bộ mặt tiền.",
-        x: 64,
-        y: 71,
+        x: 67,
+        y: 79,
         side: "left",
       },
     ],
@@ -585,7 +585,7 @@ export default function HeroArchitectural() {
                   duration: reduceMotion ? 0.01 : 0.58,
                   ease: EASE,
                 }}
-                className="absolute inset-0"
+                className="absolute inset-0 min-[1180px]:bottom-auto min-[1180px]:top-1/2 min-[1180px]:aspect-video min-[1180px]:h-auto min-[1180px]:[translate:0_-50%]"
               >
                 <motion.div
                   className="absolute inset-0"
