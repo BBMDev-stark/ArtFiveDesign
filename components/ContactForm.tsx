@@ -66,6 +66,7 @@ export default function ContactForm() {
   }
 
   const isSubmitting = submitState === "submitting";
+  const isSuccess = submitState === "success";
 
   return (
     <form
@@ -211,21 +212,41 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="eyebrow inline-flex min-w-[170px] items-center justify-center border border-charcoal px-10 py-4 text-charcoal transition-colors duration-300 hover:bg-charcoal hover:text-ivory disabled:cursor-wait disabled:bg-charcoal disabled:text-ivory"
+          className={`eyebrow inline-flex min-w-[190px] items-center justify-center border px-10 py-4 transition-colors duration-300 disabled:cursor-wait ${
+            isSuccess
+              ? "border-emerald-700 bg-emerald-700 text-white"
+              : "border-charcoal text-charcoal hover:bg-charcoal hover:text-ivory disabled:bg-charcoal disabled:text-ivory"
+          }`}
         >
-          {isSubmitting ? "Đang gửi…" : "Gửi Liên hệ"}
+          {isSubmitting
+            ? "Đang gửi…"
+            : isSuccess
+              ? "✓ Đã gửi thành công"
+              : "Gửi Liên hệ"}
         </button>
 
         {statusMessage ? (
-          <p
-            className={`max-w-xl text-sm leading-relaxed ${
-              submitState === "error" ? "text-red-700" : "text-charcoal/65"
+          <div
+            className={`flex max-w-xl items-start gap-3 border px-4 py-3 text-sm leading-relaxed ${
+              submitState === "error"
+                ? "border-red-300 bg-red-50 text-red-800"
+                : submitState === "success"
+                  ? "border-emerald-300 bg-emerald-50 text-emerald-900"
+                  : "border-line bg-white/40 text-charcoal/65"
             }`}
             role={submitState === "error" ? "alert" : "status"}
             aria-live="polite"
           >
-            {statusMessage}
-          </p>
+            {submitState === "success" ? (
+              <span
+                className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-xs font-bold text-white"
+                aria-hidden="true"
+              >
+                ✓
+              </span>
+            ) : null}
+            <span>{statusMessage}</span>
+          </div>
         ) : null}
       </div>
     </form>
