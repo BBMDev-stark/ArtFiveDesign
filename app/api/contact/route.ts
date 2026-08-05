@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 const DEFAULT_RECIPIENT = "hello@art5design.com";
-const DEFAULT_SENDER = "ARTFIVE Website <website@contact.art5design.com>";
+const DEFAULT_SENDER = "ARTFIVE Website <onboarding@resend.dev>";
 const MAX_REQUEST_SIZE = 20_000;
 const RATE_LIMIT_WINDOW = 10 * 60 * 1000;
 const RATE_LIMIT_MAX = 5;
@@ -39,6 +39,15 @@ function asText(value: unknown, maxLength: number) {
 
 function asSingleLine(value: unknown, maxLength: number) {
   return asText(value, maxLength).replace(/[\r\n\t]+/g, " ");
+}
+
+function envValue(value: string | undefined) {
+  const trimmed = value?.trim() ?? "";
+  const isQuoted =
+    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+    (trimmed.startsWith("'") && trimmed.endsWith("'"));
+
+  return isQuoted ? trimmed.slice(1, -1).trim() : trimmed;
 }
 
 function escapeHtml(value: string) {
@@ -227,7 +236,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = envValue(process.env.RESEND_API_KEY);
   if (!apiKey) {
     return NextResponse.json(
       {
@@ -238,8 +247,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const recipient = process.env.CONTACT_TO_EMAIL?.trim() || DEFAULT_RECIPIENT;
-  const sender = process.env.CONTACT_FROM_EMAIL?.trim() || DEFAULT_SENDER;
+  const recipient = envValue(process.env.CONTACT_TO_EMAIL) || DEFAULT_RECIPIENT;
+  const sender = envValue(process.env.CONTACT_FROM_EMAIL) || DEFAULT_SENDER;
   const plainText = [
     "LIÊN HỆ MỚI TỪ WEBSITE ARTFIVE",
     "",
@@ -290,10 +299,33 @@ export async function POST(request: Request) {
         errorBody.slice(0, 500),
       );
 
-      const configurationMessage =
-        resendResponse.status === 401 || resendResponse.status === 403
-          ? "Hệ thống gửi email chưa được xác thực. Vui lòng liên hệ trực tiếp qua hello@art5design.com."
-          : "Không thể gửi liên hệ lúc này. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua email.";
+      const normalizedError = errorBody.toLowerCase();
+      let configurationMessage =
+        "Không thể gửi liên hệ lúc này. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua email.";
+
+      if (
+        resendResponse.status === 401 ||
+        normalizedError.includes("invalid_api_key") ||
+        normalizedError.includes("invalid api key")
+      ) {
+        configurationMessage =
+          "Khóa gửi email trên máy chủ chưa hợp lệ. Vui lòng liên hệ trực tiếp qua hello@art5design.com.";
+      } else if (
+        normalizedError.includes("only send testing emails") ||
+        normalizedError.includes("verify a domain")
+      ) {
+        configurationMessage =
+          "Email nhận thử nghiệm chưa trùng với tài khoản Resend hoặc domain gửi chưa được xác minh.";
+      } else if (
+        resendResponse.status === 403 ||
+        normalizedError.includes("domain is not verified")
+      ) {
+        configurationMessage =
+          "Domain gửi email chưa được Resend xác minh. Vui lòng liên hệ trực tiếp qua hello@art5design.com.";
+      } else if (resendResponse.status === 422) {
+        configurationMessage =
+          "Địa chỉ người gửi trên máy chủ chưa đúng định dạng. Vui lòng liên hệ trực tiếp qua hello@art5design.com.";
+      }
 
       return NextResponse.json(
         { message: configurationMessage },
