@@ -207,7 +207,7 @@ export const projects: Project[] = [
     name: "Biệt thự Him Lam Tân Hưng",
     client: "Cộng đồng cư dân Him Lam",
     location:
-      "Khu dân cư Him Lam Tân Hưng, đường Nguyễn Thị Thập, Phường Tân Hưng, Thành phố Hồ Chí Minh",
+      "24 Đường Số 10, KĐTM Him Lam, Phường Tân Hưng, Quận 7, Ho Chi Minh City, Vietnam",
     sector: ["residential"],
     image: "/images/villatanhung1.webp",
     excerpt:
