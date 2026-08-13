@@ -50,7 +50,7 @@ const projects: Project[] = [
     src: "/images/himlamtanhung.svg",
     name: "Biệt thự Him Lam Tân Hưng",
     type: "Nhà ở",
-    location: "Khu dân cư Him Lam Tân Hưng, đường Nguyễn Thị Thập, TP.HCM",
+    location: "24 Đường Số 10, KĐTM Him Lam, Phường Tân Hưng, Quận 7, Ho Chi Minh City, Vietnam",
     scope: "Kiến trúc & Nội thất",
     summary:
       "Mặt tiền được tổ chức theo nhịp đứng rõ ràng, kết hợp các lớp mái, vòm và ánh sáng để tạo chiều sâu cho một khu đất đô thị hẹp.",
